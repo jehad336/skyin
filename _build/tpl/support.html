@@ -1,0 +1,166 @@
+
+  <main id="main">
+{{hero|الدعم|نحن هنا لمساعدتك<br>في كل خطوة|عندك سؤال قبل الرحلة أو أثناءها أو بعدها؟ تواصل معنا بالطريقة التي تناسبك.|20}}
+
+    <!-- Quick contact -->
+    <section class="section">
+      <div class="container-x grid gap-5 md:grid-cols-3 md:gap-6" data-stagger>
+        <div class="reveal">
+          <article class="card flex h-full flex-col">
+            <div class="flex items-center justify-between">
+              <div class="icon-tile">{{icon:message}}</div>
+              <span class="pill bg-skyin-orange/15 text-skyin-orange">الأسرع</span>
+            </div>
+            <h3 class="mt-6 text-[20px] font-medium">واتساب</h3>
+            <p class="mt-2 text-[15px] text-white"><span data-config="phone" dir="ltr">+966 50 000 0000</span></p>
+            <p class="mt-1 text-[14px] text-white/60">نرد عادةً خلال دقائق</p>
+            <div class="mt-auto pt-8"><a href="#" data-href="whatsapp" target="_blank" rel="noopener" class="btn-secondary">راسلنا الآن</a></div>
+          </article>
+        </div>
+        <div class="reveal">
+          <article class="card flex h-full flex-col">
+            <div class="icon-tile">{{icon:phone}}</div>
+            <h3 class="mt-6 text-[20px] font-medium">الهاتف</h3>
+            <p class="mt-2 text-[15px] text-white"><span data-config="phone" dir="ltr">+966 50 000 0000</span></p>
+            <p class="mt-1 text-[14px] text-white/60">السبت – الخميس، 9:00 ص – 10:00 م</p>
+            <div class="mt-auto pt-8"><a href="#" data-href="phone" class="btn-secondary">اتصل بنا</a></div>
+          </article>
+        </div>
+        <div class="reveal">
+          <article class="card flex h-full flex-col">
+            <div class="icon-tile">{{icon:mail}}</div>
+            <h3 class="mt-6 text-[20px] font-medium">البريد الإلكتروني</h3>
+            <p class="mt-2 break-all text-[15px] text-white"><span data-config="email" dir="ltr">info@yourdomain.com</span></p>
+            <p class="mt-1 text-[14px] text-white/60">نرد خلال 24 ساعة</p>
+            <div class="mt-auto pt-8"><a href="#" data-href="email" class="btn-secondary">أرسل بريداً</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form -->
+    <section id="contact" class="section pt-0">
+      <div class="container-x grid gap-10 md:grid-cols-12 md:gap-12">
+        <div class="reveal md:col-span-5">
+          <p class="eyebrow">تواصل معنا</p>
+          <h2 class="section-title mt-4">أرسل لنا رسالة</h2>
+          <p class="body-copy mt-5 max-w-md">أخبرنا بما تحتاجه وسيتواصل معك فريقنا، غالباً في نفس اليوم.</p>
+          <ul class="mt-8 space-y-4 text-[15px] text-white/70">
+            <li class="flex items-start gap-3">{{icon:clock|mt-0.5 h-5 w-5 shrink-0 text-skyin-cyan}}<span>السبت – الخميس · 9:00 ص – 10:00 م<br>الجمعة · 4:00 م – 10:00 م</span></li>
+            <li class="flex items-start gap-3">{{icon:pin|mt-0.5 h-5 w-5 shrink-0 text-skyin-cyan}}<span>المكتب الرئيسي: حي العليا، الرياض<br><a href="locations.html" class="text-white/90 underline decoration-white/30 underline-offset-4 hover:decoration-white">كل الفروع</a></span></li>
+            <li class="flex items-start gap-3">{{icon:mail|mt-0.5 h-5 w-5 shrink-0 text-skyin-cyan}}<a href="#" data-href="email" class="hover:text-white" data-config="email" dir="ltr">info@yourdomain.com</a></li>
+          </ul>
+        </div>
+
+        <div class="reveal md:col-span-7" style="--i: 1">
+          <div class="panel p-6 md:p-10">
+            <!-- To receive messages by email instead of WhatsApp, add data-endpoint="https://formspree.io/f/XXXX" to the form -->
+            <form id="contact-form" class="grid gap-5 sm:grid-cols-2" novalidate>
+              <div data-field class="sm:col-span-2">
+                <label for="c-name" class="label">الاسم الكامل</label>
+                <input id="c-name" name="name" type="text" autocomplete="name" class="field" placeholder="اكتب اسمك الكامل" data-rule="name" aria-describedby="c-name-err" />
+                <p id="c-name-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="c-phone" class="label">رقم الجوال</label>
+                <div class="field-group" dir="ltr">
+                  <span class="flex select-none items-center border-r border-white/10 px-4 text-[15px] text-white/60">+966</span>
+                  <input id="c-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" class="w-full bg-transparent px-4 py-3 text-[15px] text-white outline-none placeholder:text-white/40" placeholder="5X XXX XXXX" data-rule="saMobile" aria-describedby="c-phone-err" />
+                </div>
+                <p id="c-phone-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="c-email" class="label">البريد الإلكتروني</label>
+                <input id="c-email" name="email" type="email" autocomplete="email" class="field text-right" placeholder="you@example.com" data-rule="email" aria-describedby="c-email-err" dir="ltr" />
+                <p id="c-email-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field class="sm:col-span-2">
+                <label for="c-topic" class="label">الموضوع</label>
+                <select id="c-topic" name="topic" class="field" data-rule="choice" aria-describedby="c-topic-err">
+                  <option value="">اختر الموضوع</option>
+                  <option>حجز جديد</option>
+                  <option>تعديل حجز</option>
+                  <option>تأشيرة</option>
+                  <option>أخرى</option>
+                </select>
+                <p id="c-topic-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field class="sm:col-span-2">
+                <label for="c-message" class="label">رسالتك</label>
+                <textarea id="c-message" name="message" rows="5" class="field resize-none" placeholder="كيف يمكننا مساعدتك؟" data-rule="message" aria-describedby="c-message-err"></textarea>
+                <p id="c-message-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div class="sm:col-span-2">
+                <button type="submit" class="btn-primary w-full sm:w-auto">
+                  <span class="spinner" data-spinner hidden></span>
+                  <span data-label>أرسل الرسالة</span>
+                </button>
+                <p class="err mt-4" data-form-error hidden>حدث خطأ، حاول مرة أخرى أو راسلنا عبر واتساب.</p>
+              </div>
+            </form>
+
+            <div class="py-10 text-center" data-success hidden>
+              <svg viewBox="0 0 52 52" class="mx-auto h-16 w-16" aria-hidden="true">
+                <circle class="check-circle" cx="26" cy="26" r="24" fill="none" stroke="#04B2CD" stroke-width="2" />
+                <path class="check-mark" d="M15 27l7 7 15-15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <h3 class="mt-6 text-[24px] font-medium outline-none" tabindex="-1" data-success-title>شكراً لك! سنتواصل معك قريباً.</h3>
+              <p class="mx-auto mt-3 max-w-sm text-[15px] text-white/70">رسالتك جاهزة في واتساب، اضغط «إرسال» لتصل إلى فريقنا.</p>
+              <button type="button" class="btn-secondary mt-8" data-reset>أرسل رسالة أخرى</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ — EDIT: answers are samples; adjust to your real policies -->
+    <section class="section pt-0">
+      <div class="container-x grid gap-10 md:grid-cols-12 md:gap-12">
+        <div class="reveal md:col-span-4">
+          <p class="eyebrow">الأسئلة الشائعة</p>
+          <h2 class="section-title mt-4">أسئلة تتكرر علينا</h2>
+          <p class="body-copy mt-5">لم تجد إجابتك؟ <a href="#contact" class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">أرسل لنا رسالة</a>.</p>
+        </div>
+        <div class="reveal md:col-span-8" style="--i: 1">
+          <div class="border-t border-white/10" data-accordion>
+            <div class="acc-item border-b border-white/10" data-acc-item>
+              <h3><button type="button" id="faq-1-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-1">كيف أحجز رحلة؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15">{{icon:plus|h-4 w-4}}</span></button></h3>
+              <div id="faq-1" class="acc-panel" role="region" aria-labelledby="faq-1-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">أرسل لنا وجهتك ومواعيدك وعدد المسافرين عبر واتساب أو من النموذج أعلاه. سنرسل لك خطة مناسبة بسعر واضح، ونؤكد كل شيء بعد موافقتك.</p></div></div>
+            </div>
+            <div class="acc-item border-b border-white/10" data-acc-item>
+              <h3><button type="button" id="faq-2-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-2">ما طرق الدفع المتاحة؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15">{{icon:plus|h-4 w-4}}</span></button></h3>
+              <div id="faq-2" class="acc-panel" role="region" aria-labelledby="faq-2-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">نقبل مدى وفيزا وماستركارد و<span dir="ltr">Apple Pay</span> والتحويل البنكي. اسأل فريقنا عن خيارات الدفع للحجوزات الكبيرة.</p></div></div>
+            </div>
+            <div class="acc-item border-b border-white/10" data-acc-item>
+              <h3><button type="button" id="faq-3-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-3">هل يمكنني تعديل الحجز أو إلغاؤه؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15">{{icon:plus|h-4 w-4}}</span></button></h3>
+              <div id="faq-3" class="acc-panel" role="region" aria-labelledby="faq-3-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">نعم. التعديل والإلغاء يخضعان لشروط شركة الطيران والفندق، وسنوضح لك أي رسوم قبل التأكيد.</p></div></div>
+            </div>
+            <div class="acc-item border-b border-white/10" data-acc-item>
+              <h3><button type="button" id="faq-4-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-4">هل تساعدون في التأشيرات؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15">{{icon:plus|h-4 w-4}}</span></button></h3>
+              <div id="faq-4" class="acc-panel" role="region" aria-labelledby="faq-4-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">نعم. نشرح لك متطلبات وجهتك، ونساعدك في تجهيز الأوراق، ونتابع طلبك حتى يصدر.</p></div></div>
+            </div>
+            <div class="acc-item border-b border-white/10" data-acc-item>
+              <h3><button type="button" id="faq-5-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-5">هل التأمين على السفر مشمول؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15">{{icon:plus|h-4 w-4}}</span></button></h3>
+              <div id="faq-5" class="acc-panel" role="region" aria-labelledby="faq-5-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">مشمول في كثير من باقاتنا، ويمكن إضافته لأي حجز. وسنوضح لك ما يغطيه قبل السفر.</p></div></div>
+            </div>
+            <div class="acc-item border-b border-white/10" data-acc-item>
+              <h3><button type="button" id="faq-6-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-6">هل تنظمون رحلات جماعية؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15">{{icon:plus|h-4 w-4}}</span></button></h3>
+              <div id="faq-6" class="acc-panel" role="region" aria-labelledby="faq-6-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">بالتأكيد، للعائلات والأصدقاء والشركات. الرحلات الجماعية لها تخطيط خاص من البداية للنهاية.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency strip -->
+    <section class="pb-20 md:pb-28">
+      <div class="container-x">
+        <div class="reveal">
+          <div class="flex flex-col items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="flex items-center gap-3 text-[15px] text-white/80"><span class="pulse-dot"></span><span>مسافر الآن وتحتاج مساعدة عاجلة؟ اتصل على خط الطوارئ المتاح <span dir="ltr">24/7</span>.</span></p>
+            <a href="#" data-href="emergency" class="btn-secondary shrink-0">{{icon:phone|h-4 w-4}} <span data-config="emergencyPhone" dir="ltr">+966 50 000 0000</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>

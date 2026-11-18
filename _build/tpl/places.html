@@ -1,0 +1,62 @@
+
+  <main id="main">
+{{hero|الوجهات|اكتشف أماكن<br>تستحق الزيارة|وجهات مختارة بعناية، مع باقات جاهزة للحجز.|16}}
+
+    <!-- Filters + destinations — EDIT: prices are samples (see DESTS in build data / JSON below) -->
+    <section class="section pt-12 md:pt-16">
+      <div class="container-x">
+        <div class="reveal">
+          <div class="-mx-6 flex gap-2 overflow-x-auto px-6 pb-1 md:mx-0 md:justify-center md:px-0" data-filters role="toolbar" aria-label="تصفية الوجهات حسب المنطقة">
+            <button type="button" class="pill-filter is-active" data-filter="all" aria-pressed="true">الكل</button>
+            <button type="button" class="pill-filter" data-filter="europe" aria-pressed="false">أوروبا</button>
+            <button type="button" class="pill-filter" data-filter="asia" aria-pressed="false">آسيا</button>
+            <button type="button" class="pill-filter" data-filter="caucasus" aria-pressed="false">القوقاز</button>
+            <button type="button" class="pill-filter" data-filter="islands" aria-pressed="false">الجزر</button>
+          </div>
+          <p class="sr-only" data-filter-status aria-live="polite"></p>
+        </div>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-6" data-stagger="3">
+{{dest_cards}}
+        </div>
+      </div>
+    </section>
+{{cta|لم تقرر وجهتك بعد؟|أخبرنا بميزانيتك ومواعيدك، ونقترح عليك المكان المناسب.|ساعدني في الاختيار|support.html#contact|20}}
+  </main>
+
+  <!-- Destination modal -->
+  <div id="dest-modal" class="modal fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
+    <div class="modal-panel relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-3xl border border-white/10 bg-[#111113] sm:rounded-3xl">
+      <button type="button" class="modal-close absolute end-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70" data-close aria-label="إغلاق">{{icon:x|h-5 w-5}}</button>
+      <div class="ph relative aspect-[16/10] w-full sm:aspect-[21/9]" data-m="media">
+        <img data-m="img" alt="" class="h-full w-full object-cover" />
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#111113] via-transparent to-transparent"></div>
+      </div>
+      <div class="p-6 md:p-8">
+        <p class="eyebrow" data-m="country"></p>
+        <h2 id="modal-title" class="mt-2 text-[32px] font-medium leading-tight md:text-[40px]" data-m="city"></h2>
+        <p class="mt-3 text-[15px] leading-relaxed text-white/70 md:text-[17px]" data-m="summary"></p>
+        <div class="mt-8 grid gap-8 md:grid-cols-2">
+          <div>
+            <h3 class="label">أبرز ما ستزوره</h3>
+            <ul class="mt-3 space-y-3" data-m="highlights"></ul>
+          </div>
+          <div>
+            <h3 class="label">أفضل وقت للزيارة</h3>
+            <p class="mt-3 flex items-center gap-2 text-[15px] text-white/80">{{icon:sun|h-[18px] w-[18px] shrink-0 text-skyin-cyan}}<span data-m="best"></span></p>
+            <h3 class="label mt-6">الباقة تشمل</h3>
+            <div class="mt-3 flex flex-wrap gap-2" data-m="includes"></div>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-[14px] text-white/60">تبدأ من <span class="text-[24px] font-medium text-white" data-m="price"></span> <span data-m="nights"></span></p>
+          <a href="#" class="btn-primary" target="_blank" rel="noopener" data-m="book">{{icon:whatsapp|h-5 w-5}} احجز هذه الرحلة</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="destinations-data">
+{{dest_json}}
+  </script>
