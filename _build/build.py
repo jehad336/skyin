@@ -12,7 +12,8 @@ sys.path.insert(0, str(ROOT))
 from icons import icon  # noqa: E402
 
 TPL = ROOT / "tpl"
-OUT = ROOT.parent  # generated pages go to the repo root
+OUT = ROOT.parent / "public"  # web root served by the backend (server/)
+DATA = ROOT.parent / "data" / "destinations.json"
 
 VIDEO = "https://cdn.sceneai.art/Hero%20Section%20Video/01d1f8de-fec0-4bf5-8b48-9fc2dbc8c6b0.mp4"
 BRAND = "سكاي إن للسفر والسياحة"
@@ -22,7 +23,7 @@ PAGES = [("من نحن", "about.html"), ("خدماتنا", "services.html"), ("�
 
 
 # ---------------------------------------------------------------- shared partials
-def head(title, description):
+def head(title, description, robots="index,follow", base="", extra_js=""):
     return f"""<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="no-js">
 <head>
@@ -31,6 +32,7 @@ def head(title, description):
   <title>{title}</title>
   <meta name="description" content="{description}" />
   <meta name="theme-color" content="#0B0B0C" />
+  <meta name="robots" content="{robots}" />{base}
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_SA" />
   <meta property="og:title" content="{title}" />
@@ -47,7 +49,8 @@ def head(title, description):
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <script src="assets/config.js" defer></script>
   <script src="assets/skyin.js" defer></script>
-</head>
+  <script src="assets/app.js" defer></script>
+{extra_js}</head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
 """
@@ -70,7 +73,10 @@ def nav(active):
       <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
 {links}
       </ul>
-      <a href="support.html#contact" class="btn-secondary hidden md:inline-flex">ابدأ رحلتك</a>
+      <div class="hidden items-center gap-6 md:flex">
+        <a href="login.html" class="nav-link" data-account-link hidden>تسجيل الدخول</a>
+        <a href="support.html#contact" class="btn-secondary">ابدأ رحلتك</a>
+      </div>
       <button id="menu-toggle" type="button"
               class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:hidden"
               aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -83,7 +89,8 @@ def nav(active):
   <div id="mobile-menu" class="fixed inset-0 z-20 bg-black/60 backdrop-blur-2xl md:hidden" aria-hidden="true" inert>
     <nav class="flex h-full flex-col items-center justify-center gap-7 px-6" aria-label="قائمة الجوال">
 {mlinks}
-      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 5">ابدأ رحلتك</a>
+      <a href="login.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 5" data-account-link hidden>تسجيل الدخول</a>
+      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 6">ابدأ رحلتك</a>
     </nav>
   </div>
 """
@@ -187,65 +194,44 @@ def cta(title, text, button, href, t="12"):
 """
 
 
+def app_header(eyebrow, title, text=""):
+    p = f'<p class="fade-in-up lead mt-4 max-w-xl" style="--d: 300ms">{text}</p>' if text else ""
+    return f"""
+  <!-- Page header (app pages: no video) -->
+  <section class="relative isolate overflow-hidden bg-gradient-to-b from-[#0b3a46]/60 to-ink pb-10 pt-32 md:pb-14 md:pt-40">
+    <div class="container-x">
+      <p class="fade-in-up eyebrow" style="--d: 100ms">{eyebrow}</p>
+      <h1 class="fade-in-up mt-3 text-[32px] font-medium leading-[1.3] md:text-[44px]" style="--d: 200ms" data-page-title>{title}</h1>
+      {p}
+    </div>
+  </section>
+"""
+
+
 # ---------------------------------------------------------------- destinations (single source for cards + modal)
-# EDIT: prices and nights are samples.
-INCLUDES = ["الطيران", "الفندق", "التنقلات", "الجولات"]
-DESTS = [
-    dict(slug="istanbul", city="إسطنبول", country="تركيا", region="europe", price="2,450", nights=5, c1="#B4532A", c2="#1E1B3A",
-         best="أبريل – مايو · سبتمبر – نوفمبر",
-         summary="حيث تلتقي أوروبا بآسيا: مساجد عريقة، وأسواق حيوية، وجولات بحرية في البوسفور وقت الغروب.",
-         highlights=["آيا صوفيا والمسجد الأزرق", "رحلة بحرية في البوسفور وقت الغروب", "البازار الكبير وسوق التوابل"]),
-    dict(slug="paris", city="باريس", country="فرنسا", region="europe", price="4,900", nights=6, c1="#8E7A9B", c2="#1C1F2E",
-         best="أبريل – يونيو · سبتمبر – أكتوبر",
-         summary="شوارع أنيقة، ومتاحف عالمية، ومقاهٍ في كل زاوية.",
-         highlights=["برج إيفل وإطلالة تروكاديرو", "متحف اللوفر ومتحف أورسيه", "رحلة نهرية في نهر السين"]),
-    dict(slug="zurich", city="زيورخ", country="سويسرا", region="europe", price="5,600", nights=6, c1="#3B82A6", c2="#0F1E2E",
-         best="يونيو – سبتمبر · ديسمبر – فبراير",
-         summary="بحيرة ساحرة، وجبال الألب على بُعد رحلة قطار قصيرة.",
-         highlights=["بحيرة زيورخ والبلدة القديمة", "رحلة يومية إلى لوسيرن وجبل تيتليس", "رحلات قطار بإطلالات رائعة"]),
-    dict(slug="baku", city="باكو", country="أذربيجان", region="caucasus", price="1,950", nights=4, c1="#C2702E", c2="#22161A",
-         best="أبريل – يونيو · سبتمبر – أكتوبر",
-         summary="عاصمة على بحر قزوين تجمع الأزقة القديمة والأبراج الحديثة.",
-         highlights=["المدينة القديمة المسجلة في اليونسكو", "أبراج اللهب والكورنيش", "رحلة يومية إلى جبال قبالا"]),
-    dict(slug="tbilisi", city="تبليسي", country="جورجيا", region="caucasus", price="1,850", nights=5, c1="#A0654A", c2="#2A1A2E",
-         best="مايو – يونيو · سبتمبر – أكتوبر",
-         summary="بيوت ملوّنة، وضيافة دافئة، وجبال قريبة منك.",
-         highlights=["تبليسي القديمة والحمامات الكبريتية", "قلعة ناريكالا بالتلفريك", "رحلة يومية إلى كازبيجي"]),
-    dict(slug="kuala-lumpur", city="كوالالمبور", country="ماليزيا", region="asia", price="2,900", nights=6, c1="#1F8A70", c2="#0B1B24",
-         best="يونيو – أغسطس",
-         summary="مدينة خضراء وحديثة، بإطلالات رائعة وطبيعة قريبة وأكل لذيذ.",
-         highlights=["برجا بتروناس", "كهوف باتو", "رحلة يومية إلى مرتفعات جنتنج"]),
-    dict(slug="phuket", city="بوكيت", country="تايلاند", region="asia", price="3,200", nights=6, c1="#1AA3B8", c2="#0E2A3A",
-         best="نوفمبر – أبريل",
-         summary="جولات بين الجزر، وخلجان بلون الفيروز، وأيام هادئة على الشاطئ.",
-         highlights=["رحلة بحرية إلى جزر في في", "بلدة بوكيت القديمة", "شواطئ كاتا وكارون"]),
-    dict(slug="maldives", city="المالديف", country="المالديف", region="islands", price="6,800", nights=5, c1="#22C3D6", c2="#0A3346",
-         best="نوفمبر – أبريل",
-         summary="فلل فوق الماء، ومياه صافية، وخصوصية تامة.",
-         highlights=["إقامة في فيلا فوق الماء", "سباحة بين الشعاب المرجانية", "نزهة خاصة على جزيرة رملية"]),
-    dict(slug="bali", city="بالي", country="إندونيسيا", region="islands", price="4,200", nights=7, c1="#5E9E4A", c2="#13261C",
-         best="أبريل – أكتوبر",
-         summary="مدرجات أرز خضراء، وشواطئ ساحرة، وهدوء الجزيرة.",
-         highlights=["مدرجات الأرز في أوبود", "منحدرات أولواتو وقت الغروب", "رحلة يومية إلى نوسا بينيدا"]),
-]
+# Single source of truth: data/destinations.json (also seeded into the database).
+# The static cards are a fallback; places.html refreshes them from /api/destinations at runtime.
+DESTS = json.loads(DATA.read_text(encoding="utf-8"))
+for _d in DESTS:
+    _d["price_fmt"] = f"{_d['price']:,}"
 
 
 def dest_cards():
     out = []
     for d in DESTS:
-        out.append(f"""        <div class="dest-item" data-region="{d['region']}">
+        out.append(f"""        <div class="dest-item" data-region="{d['region']}" data-card="{d['slug']}">
           <div class="reveal">
-            <button type="button" data-dest="{d['slug']}" aria-label="{d['city']}، {d['country']} — عرض التفاصيل"
+            <button type="button" data-dest="{d['slug']}" aria-label="{d['city']}، {d['country']} — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: {d['c1']}; --c2: {d['c2']}">
-                <img src="assets/images/{d['slug']}.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/{d['slug']}.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true">{icon('arrow-up-right', 'h-5 w-5 rtl:-scale-x-100')}</span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">{d['country']}</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">{d['city']}</h3>
-                <p class="mt-2 text-[14px] text-white/80">من {d['price']} ريال · {d['nights']} ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>{d['country']}</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>{d['city']}</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من {d['price_fmt']} ريال · {d['nights']} ليالٍ</p>
               </div>
             </button>
           </div>
@@ -254,8 +240,8 @@ def dest_cards():
 
 
 def dest_json():
-    data = {d["slug"]: {k: d[k] for k in ("city", "country", "price", "nights", "c1", "c2", "best", "summary", "highlights")}
-            | {"includes": INCLUDES} for d in DESTS}
+    data = {d["slug"]: {k: d[k] for k in ("city", "country", "nights", "c1", "c2", "best", "summary", "highlights", "includes")}
+            | {"price": d["price_fmt"]} for d in DESTS}
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
@@ -275,6 +261,17 @@ META = {
                      "عندك سؤال عن رحلتك؟ تواصل مع سكاي إن عبر واتساب أو الهاتف أو البريد، أو اقرأ الأسئلة الشائعة."),
 }
 
+NOINDEX = "noindex,nofollow"
+APP_META = {
+    "login.html": (f"تسجيل الدخول | {BRAND}", "سجّل دخولك إلى حسابك في سكاي إن."),
+    "register.html": (f"إنشاء حساب | {BRAND}", "أنشئ حسابك في سكاي إن لحجز رحلاتك ومتابعتها."),
+    "account.html": (f"حسابي | {BRAND}", "حجوزاتك وطلباتك في سكاي إن."),
+    "book.html": (f"احجز رحلتك | {BRAND}", "احجز باقتك وادفع أونلاين بأمان."),
+    "pay.html": (f"الدفع | {BRAND}", "ادفع حجزك أونلاين بأمان."),
+    "admin.html": (f"لوحة التحكم | {BRAND}", "لوحة تحكم سكاي إن."),
+    "404.html": (f"الصفحة غير موجودة | {BRAND}", "الصفحة غير موجودة."),
+}
+
 TOKEN = re.compile(r"\{\{(\w[\w-]*)(?::([\w-]+))?(?:\|([^}]*))?\}\}")
 
 
@@ -290,6 +287,8 @@ def render(tpl):
             return cta(*a)
         if kind == "bgvideo":
             return bg_video(a[0] if a else "0", a[1] if len(a) > 1 else "")
+        if kind == "apphead":
+            return app_header(*a)
         if kind == "dest_cards":
             return dest_cards()
         if kind == "dest_json":
@@ -298,10 +297,16 @@ def render(tpl):
     return TOKEN.sub(sub, tpl)
 
 
-for page, (title, desc) in META.items():
-    body = render((TPL / page).read_text())
-    html = head(title, desc) + nav(page) + body + footer()
+OUT.mkdir(exist_ok=True)
+for page, (title, desc) in (META | APP_META).items():
+    body = render((TPL / page).read_text(encoding="utf-8"))
+    app = page in APP_META
+    html = head(title, desc,
+                robots=NOINDEX if app else "index,follow",
+                base='\n  <base href="/" />' if page == "404.html" else "",
+                extra_js='  <script src="assets/admin.js" defer></script>\n' if page == "admin.html" else "")
+    html += nav(page) + body + (footer() if page != "admin.html" else "</body>\n</html>\n")
     left = TOKEN.findall(html)
     assert not left, (page, left)
-    (OUT / page).write_text(html)
+    (OUT / page).write_text(html, encoding="utf-8")
     print(f"built {page:16} {len(html) / 1024:6.1f} KB")

@@ -30,6 +30,11 @@
   $$('[data-social]').forEach((el) => { const u = (C.social || {})[el.dataset.social]; if (u) el.href = u; });
   $$('[data-year]').forEach((el) => { el.textContent = String(new Date().getFullYear()); });
 
+  /* ---------- 1b. Missing photos → keep the gradient placeholder ---------- */
+  const dropImg = (img) => { if (img.hasAttribute('data-card-img') || img.hasAttribute('data-book-img')) img.hidden = true; else img.remove(); };
+  $$('img[data-fallback]').forEach((img) => { if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) dropImg(img); });
+  document.addEventListener('error', (e) => { const t = e.target; if (t && t.tagName === 'IMG' && t.hasAttribute('data-fallback')) dropImg(t); }, true);
+
   /* ---------- 2. Background videos: muted autoplay, fade in, pause off-screen ---------- */
   const videos = $$('video.bg-video');
   videos.forEach((v) => {
@@ -102,7 +107,11 @@
     }
   }
 
-  /* ---------- 6. Forms: validation + WhatsApp hand-off ---------- */
+  /* ---------- 6. Forms: validation → saved via the API (WhatsApp fallback if no server) ---------- */
+  // window.Skyin comes from app.js (loaded after this file); only used at submit time.
+  const send = (url, data) => window.Skyin.api('POST', url, data);
+  const serverDown = (e) => e.network || e.noApi || e.status >= 500;
+  const showFieldErrors = (form, e) => { if (window.Skyin && e.fields) window.Skyin.showErrors(form, e); };
   const todayISO = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
   // Accept Arabic-Indic digits (٠-٩ / ۰-۹) typed on Arabic keyboards
   const toLatinDigits = (s) => String(s).replace(/[\u0660-\u0669\u06F0-\u06F9]/g, (c) => String(c.charCodeAt(0) & 0xF));
@@ -158,9 +167,29 @@
       s.value = a.dataset.service;
       s.dispatchEvent(new Event('change'));
     }));
-    quote.addEventListener('submit', (e) => {
+    const qBtn = $('button[type="submit"]', quote);
+    const qNote = $('[data-form-note]', quote);
+    const qErr = $('[data-form-error]', quote);
+    quote.addEventListener('submit', async (e) => {
       e.preventDefault();
+      qNote.hidden = true; qErr.hidden = true;
       if (!validateForm(quote)) return;
+      window.Skyin.busy(qBtn, true, 'جارٍ الإرسال…');
+      try {
+        await send('/quotes', {
+          name: val(quote, 'name'), phone: toLatinDigits(val(quote, 'phone')), service: val(quote, 'service'),
+          date: val(quote, 'date'), travelers: toLatinDigits(val(quote, 'travelers')),
+        });
+        window.Skyin.busy(qBtn, false);
+        quote.reset();
+        $$('select.field', quote).forEach((s) => s.classList.add('is-placeholder'));
+        qNote.innerHTML = 'استلمنا طلبك ✓ سيتواصل معك فريقنا قريباً بالأسعار ورابط الدفع. تبي رد أسرع؟ <a target="_blank" rel="noopener" class="text-skyin-cyan underline" href="' + esc(waLink('مرحباً سكاي إن، أرسلت طلب عرض سعر من الموقع.')) + '">راسلنا على واتساب</a>.';
+        qNote.hidden = false;
+        return;
+      } catch (err) {
+        window.Skyin.busy(qBtn, false);
+        if (!serverDown(err)) { showFieldErrors(quote, err); qErr.textContent = err.message; qErr.hidden = !!err.fields; return; }
+      }
       openWhatsApp([
         'مرحباً سكاي إن، أرغب بعرض سعر:',
         '',
@@ -170,8 +199,8 @@
         `• تاريخ السفر: ${niceDate(val(quote, 'date'))}`,
         `• عدد المسافرين: ${toLatinDigits(val(quote, 'travelers'))}`,
       ].join('\n'));
-      const note = $('[data-form-note]', quote);
-      if (note) note.hidden = false;
+      qNote.textContent = 'فتحنا لك واتساب في نافذة جديدة، اضغط «إرسال» فقط.';
+      qNote.hidden = false;
     });
   }
 
@@ -198,19 +227,25 @@
       const fail = $('[data-form-error]', contact);
       if (fail) fail.hidden = true;
       if (!validateForm(contact)) return;
-      const endpoint = contact.dataset.endpoint; // optional: Formspree or similar
-      if (endpoint) {
-        setLoading(true);
-        try {
-          const r = await fetch(endpoint, { method: 'POST', body: new FormData(contact), headers: { Accept: 'application/json' } });
-          if (!r.ok) throw new Error(String(r.status));
-          done();
-        } catch (_) {
-          setLoading(false);
-          if (fail) fail.hidden = false;
-        }
+      setLoading(true);
+      const okText = $('[data-success-text]', success);
+      try {
+        await send('/messages', {
+          name: val(contact, 'name'), phone: '+966' + saMobile(val(contact, 'phone')), email: val(contact, 'email'),
+          topic: val(contact, 'topic'), message: val(contact, 'message'),
+        });
+        if (okText) okText.textContent = 'وصلت رسالتك إلى فريقنا، وسنرد عليك خلال ساعات العمل.';
+        done();
         return;
+      } catch (err) {
+        if (!serverDown(err)) {
+          setLoading(false);
+          showFieldErrors(contact, err);
+          if (fail && !err.fields) { fail.textContent = err.message; fail.hidden = false; }
+          return;
+        }
       }
+      if (okText) okText.textContent = 'رسالتك جاهزة في واتساب، اضغط «إرسال» لتصل إلى فريقنا.';
       openWhatsApp([
         `مرحباً سكاي إن — ${val(contact, 'topic')}`,
         '',
@@ -220,7 +255,6 @@
         '',
         val(contact, 'message'),
       ].join('\n'));
-      setLoading(true);
       setTimeout(done, reduceMotion ? 0 : 700);
     });
     const again = $('[data-reset]', success);
@@ -308,9 +342,9 @@
   }
 
   /* ---------- 9. Destinations: filters ---------- */
+  let items = $$('.dest-item'); // refreshed when live destinations load (section 10)
   const filterBar = $('[data-filters]');
   if (filterBar) {
-    const items = $$('.dest-item');
     const status = $('[data-filter-status]');
     let token = 0;
     filterBar.addEventListener('click', (e) => {
@@ -341,6 +375,43 @@
   const dataEl = $('#destinations-data');
   if (modal && dataEl) {
     const D = JSON.parse(dataEl.textContent);
+    // Live prices / new destinations from the admin dashboard (the static JSON stays as the fallback).
+    fetch('/api/destinations', { headers: { Accept: 'application/json' } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((res) => {
+        const tpl = $('[data-card]');
+        if (!res || !Array.isArray(res.destinations) || !tpl) return;
+        const grid = tpl.parentElement;
+        const live = new Set();
+        res.destinations.forEach((d) => {
+          live.add(d.slug);
+          const price = Number(d.price).toLocaleString('en-US');
+          D[d.slug] = { city: d.city, country: d.country, price, nights: d.nights, c1: d.c1, c2: d.c2, best: d.best,
+            summary: d.summary, highlights: d.highlights || [], includes: d.includes || [], image: d.image };
+          let card = $(`[data-card="${CSS.escape(d.slug)}"]`, grid);
+          if (!card) {
+            card = tpl.cloneNode(true);
+            card.dataset.card = d.slug;
+            const btn = $('[data-card-btn]', card);
+            btn.dataset.dest = d.slug;
+            btn.addEventListener('click', () => openModal(d.slug, btn));
+            $$('.reveal', card).forEach((r) => r.classList.add('is-visible'));
+            grid.appendChild(card);
+          }
+          card.dataset.region = d.region;
+          $('[data-card-btn]', card).setAttribute('aria-label', `${d.city}، ${d.country} — عرض التفاصيل`);
+          $('[data-card-country]', card).textContent = d.country;
+          $('[data-card-city]', card).textContent = d.city;
+          $('[data-card-price]', card).textContent = `من ${price} ريال · ${d.nights} ليالٍ`;
+          const ph = $('.ph', card); ph.style.setProperty('--c1', d.c1); ph.style.setProperty('--c2', d.c2);
+          const img = $('[data-card-img]', card);
+          if (img && img.getAttribute('src') !== d.image) { img.hidden = false; img.src = d.image; }
+        });
+        $$('[data-card]', grid).forEach((c) => { if (!live.has(c.dataset.card)) c.remove(); });
+        res.destinations.forEach((d) => { const c = $(`[data-card="${CSS.escape(d.slug)}"]`, grid); if (c) grid.appendChild(c); });
+        items = $$('.dest-item');
+      })
+      .catch(() => {});
     const panel = $('.modal-panel', modal);
     const m = (k) => $(`[data-m="${k}"]`, modal);
     const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
@@ -358,7 +429,7 @@
       img.hidden = false;
       img.onerror = () => { img.hidden = true; };
       img.alt = `${d.city}، ${d.country}`;
-      img.src = `assets/images/${slug}.jpg`;
+      img.src = d.image || `assets/images/${slug}.jpg`;
       m('country').textContent = d.country;
       m('city').textContent = d.city;
       m('summary').textContent = d.summary;
@@ -369,7 +440,8 @@
         `<span class="rounded-full border border-white/15 px-3 py-1 text-[13px] text-white/80">${esc(i)}</span>`).join('');
       m('price').textContent = `${d.price} ريال`;
       m('nights').textContent = `· ${d.nights} ليالٍ`;
-      m('book').href = waLink(`مرحباً سكاي إن، أرغب بمعرفة تفاصيل باقة ${d.city} (${d.nights} ليالٍ، تبدأ من ${d.price} ريال).`);
+      m('ask').href = waLink(`مرحباً سكاي إن، أرغب بمعرفة تفاصيل باقة ${d.city} (${d.nights} ليالٍ، تبدأ من ${d.price} ريال).`);
+      m('book').href = `book.html?d=${encodeURIComponent(slug)}`;
       modal.hidden = false;
       panel.scrollTop = 0;
       body.style.overflow = 'hidden';

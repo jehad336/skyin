@@ -6,6 +6,7 @@
   <title>الوجهات | سكاي إن للسفر والسياحة</title>
   <meta name="description" content="وجهات مختارة بعناية في أوروبا وآسيا والقوقاز والجزر، مع باقات جاهزة للحجز." />
   <meta name="theme-color" content="#0B0B0C" />
+  <meta name="robots" content="index,follow" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_SA" />
   <meta property="og:title" content="الوجهات | سكاي إن للسفر والسياحة" />
@@ -22,6 +23,7 @@
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <script src="assets/config.js" defer></script>
   <script src="assets/skyin.js" defer></script>
+  <script src="assets/app.js" defer></script>
 </head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
@@ -40,7 +42,10 @@
           <li><a href="places.html" class="nav-link" aria-current="page">الوجهات</a></li>
           <li><a href="support.html" class="nav-link">الدعم</a></li>
       </ul>
-      <a href="support.html#contact" class="btn-secondary hidden md:inline-flex">ابدأ رحلتك</a>
+      <div class="hidden items-center gap-6 md:flex">
+        <a href="login.html" class="nav-link" data-account-link hidden>تسجيل الدخول</a>
+        <a href="support.html#contact" class="btn-secondary">ابدأ رحلتك</a>
+      </div>
       <button id="menu-toggle" type="button"
               class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:hidden"
               aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -57,7 +62,8 @@
       <a href="locations.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 2">فروعنا</a>
       <a href="places.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 3" aria-current="page">الوجهات</a>
       <a href="support.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 4">الدعم</a>
-      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 5">ابدأ رحلتك</a>
+      <a href="login.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 5" data-account-link hidden>تسجيل الدخول</a>
+      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 6">ابدأ رحلتك</a>
     </nav>
   </div>
 
@@ -90,155 +96,155 @@
         </div>
 
         <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-6" data-stagger="3">
-        <div class="dest-item" data-region="europe">
+        <div class="dest-item" data-region="europe" data-card="istanbul">
           <div class="reveal">
-            <button type="button" data-dest="istanbul" aria-label="إسطنبول، تركيا — عرض التفاصيل"
+            <button type="button" data-dest="istanbul" aria-label="إسطنبول، تركيا — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #B4532A; --c2: #1E1B3A">
-                <img src="assets/images/istanbul.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/istanbul.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">تركيا</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">إسطنبول</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 2,450 ريال · 5 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>تركيا</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>إسطنبول</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 2,450 ريال · 5 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="europe">
+        <div class="dest-item" data-region="europe" data-card="paris">
           <div class="reveal">
-            <button type="button" data-dest="paris" aria-label="باريس، فرنسا — عرض التفاصيل"
+            <button type="button" data-dest="paris" aria-label="باريس، فرنسا — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #8E7A9B; --c2: #1C1F2E">
-                <img src="assets/images/paris.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/paris.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">فرنسا</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">باريس</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 4,900 ريال · 6 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>فرنسا</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>باريس</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 4,900 ريال · 6 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="europe">
+        <div class="dest-item" data-region="europe" data-card="zurich">
           <div class="reveal">
-            <button type="button" data-dest="zurich" aria-label="زيورخ، سويسرا — عرض التفاصيل"
+            <button type="button" data-dest="zurich" aria-label="زيورخ، سويسرا — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #3B82A6; --c2: #0F1E2E">
-                <img src="assets/images/zurich.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/zurich.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">سويسرا</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">زيورخ</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 5,600 ريال · 6 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>سويسرا</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>زيورخ</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 5,600 ريال · 6 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="caucasus">
+        <div class="dest-item" data-region="caucasus" data-card="baku">
           <div class="reveal">
-            <button type="button" data-dest="baku" aria-label="باكو، أذربيجان — عرض التفاصيل"
+            <button type="button" data-dest="baku" aria-label="باكو، أذربيجان — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #C2702E; --c2: #22161A">
-                <img src="assets/images/baku.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/baku.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">أذربيجان</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">باكو</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 1,950 ريال · 4 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>أذربيجان</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>باكو</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 1,950 ريال · 4 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="caucasus">
+        <div class="dest-item" data-region="caucasus" data-card="tbilisi">
           <div class="reveal">
-            <button type="button" data-dest="tbilisi" aria-label="تبليسي، جورجيا — عرض التفاصيل"
+            <button type="button" data-dest="tbilisi" aria-label="تبليسي، جورجيا — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #A0654A; --c2: #2A1A2E">
-                <img src="assets/images/tbilisi.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/tbilisi.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">جورجيا</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">تبليسي</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 1,850 ريال · 5 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>جورجيا</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>تبليسي</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 1,850 ريال · 5 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="asia">
+        <div class="dest-item" data-region="asia" data-card="kuala-lumpur">
           <div class="reveal">
-            <button type="button" data-dest="kuala-lumpur" aria-label="كوالالمبور، ماليزيا — عرض التفاصيل"
+            <button type="button" data-dest="kuala-lumpur" aria-label="كوالالمبور، ماليزيا — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #1F8A70; --c2: #0B1B24">
-                <img src="assets/images/kuala-lumpur.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/kuala-lumpur.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">ماليزيا</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">كوالالمبور</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 2,900 ريال · 6 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>ماليزيا</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>كوالالمبور</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 2,900 ريال · 6 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="asia">
+        <div class="dest-item" data-region="asia" data-card="phuket">
           <div class="reveal">
-            <button type="button" data-dest="phuket" aria-label="بوكيت، تايلاند — عرض التفاصيل"
+            <button type="button" data-dest="phuket" aria-label="بوكيت، تايلاند — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #1AA3B8; --c2: #0E2A3A">
-                <img src="assets/images/phuket.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/phuket.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">تايلاند</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">بوكيت</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 3,200 ريال · 6 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>تايلاند</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>بوكيت</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 3,200 ريال · 6 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="islands">
+        <div class="dest-item" data-region="islands" data-card="maldives">
           <div class="reveal">
-            <button type="button" data-dest="maldives" aria-label="المالديف، المالديف — عرض التفاصيل"
+            <button type="button" data-dest="maldives" aria-label="المالديف، المالديف — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #22C3D6; --c2: #0A3346">
-                <img src="assets/images/maldives.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/maldives.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">المالديف</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">المالديف</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 6,800 ريال · 5 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>المالديف</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>المالديف</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 6,800 ريال · 5 ليالٍ</p>
               </div>
             </button>
           </div>
         </div>
-        <div class="dest-item" data-region="islands">
+        <div class="dest-item" data-region="islands" data-card="bali">
           <div class="reveal">
-            <button type="button" data-dest="bali" aria-label="بالي، إندونيسيا — عرض التفاصيل"
+            <button type="button" data-dest="bali" aria-label="بالي، إندونيسيا — عرض التفاصيل" data-card-btn
                     class="group relative block aspect-[3/4] w-full overflow-hidden rounded-3xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
               <div class="ph absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105" style="--c1: #5E9E4A; --c2: #13261C">
-                <img src="assets/images/bali.jpg" alt="" class="h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/bali.jpg" alt="" class="h-full w-full object-cover" loading="lazy" data-fallback data-card-img />
               </div>
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
               <span class="absolute end-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg transition-all duration-300 md:-translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 rtl:-scale-x-100" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
               <div class="absolute inset-x-0 bottom-0 p-6">
-                <p class="text-[13px] font-medium text-white/70">إندونيسيا</p>
-                <h3 class="mt-1 text-[26px] font-medium leading-tight">بالي</h3>
-                <p class="mt-2 text-[14px] text-white/80">من 4,200 ريال · 7 ليالٍ</p>
+                <p class="text-[13px] font-medium text-white/70" data-card-country>إندونيسيا</p>
+                <h3 class="mt-1 text-[26px] font-medium leading-tight" data-card-city>بالي</h3>
+                <p class="mt-2 text-[14px] text-white/80" data-card-price>من 4,200 ريال · 7 ليالٍ</p>
               </div>
             </button>
           </div>
@@ -291,7 +297,10 @@
         </div>
         <div class="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p class="text-[14px] text-white/60">تبدأ من <span class="text-[24px] font-medium text-white" data-m="price"></span> <span data-m="nights"></span></p>
-          <a href="#" class="btn-primary" target="_blank" rel="noopener" data-m="book"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#25D366" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 7.9c.2-.4.5-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.1.1-.2.3-.1.5.6 1.1 1.5 2 2.6 2.6.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.3.4.5v.6c0 .4-.2.7-.5.9-.6.4-1.4.6-2.2.4-2.6-.6-4.7-2.7-5.4-5.3-.2-.8 0-1.6.5-2.2z" fill="#25D366"/></svg> احجز هذه الرحلة</a>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#" class="btn-secondary" target="_blank" rel="noopener" data-m="ask"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#25D366" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 7.9c.2-.4.5-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.1.1-.2.3-.1.5.6 1.1 1.5 2 2.6 2.6.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.3.4.5v.6c0 .4-.2.7-.5.9-.6.4-1.4.6-2.2.4-2.6-.6-4.7-2.7-5.4-5.3-.2-.8 0-1.6.5-2.2z" fill="#25D366"/></svg> اسأل عبر واتساب</a>
+            <a href="#" class="btn-primary" data-m="book">احجز وادفع أونلاين</a>
+          </div>
         </div>
       </div>
     </div>
@@ -302,7 +311,6 @@
   "istanbul": {
     "city": "إسطنبول",
     "country": "تركيا",
-    "price": "2,450",
     "nights": 5,
     "c1": "#B4532A",
     "c2": "#1E1B3A",
@@ -318,12 +326,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "2,450"
   },
   "paris": {
     "city": "باريس",
     "country": "فرنسا",
-    "price": "4,900",
     "nights": 6,
     "c1": "#8E7A9B",
     "c2": "#1C1F2E",
@@ -339,12 +347,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "4,900"
   },
   "zurich": {
     "city": "زيورخ",
     "country": "سويسرا",
-    "price": "5,600",
     "nights": 6,
     "c1": "#3B82A6",
     "c2": "#0F1E2E",
@@ -360,12 +368,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "5,600"
   },
   "baku": {
     "city": "باكو",
     "country": "أذربيجان",
-    "price": "1,950",
     "nights": 4,
     "c1": "#C2702E",
     "c2": "#22161A",
@@ -381,12 +389,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "1,950"
   },
   "tbilisi": {
     "city": "تبليسي",
     "country": "جورجيا",
-    "price": "1,850",
     "nights": 5,
     "c1": "#A0654A",
     "c2": "#2A1A2E",
@@ -402,12 +410,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "1,850"
   },
   "kuala-lumpur": {
     "city": "كوالالمبور",
     "country": "ماليزيا",
-    "price": "2,900",
     "nights": 6,
     "c1": "#1F8A70",
     "c2": "#0B1B24",
@@ -423,12 +431,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "2,900"
   },
   "phuket": {
     "city": "بوكيت",
     "country": "تايلاند",
-    "price": "3,200",
     "nights": 6,
     "c1": "#1AA3B8",
     "c2": "#0E2A3A",
@@ -444,12 +452,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "3,200"
   },
   "maldives": {
     "city": "المالديف",
     "country": "المالديف",
-    "price": "6,800",
     "nights": 5,
     "c1": "#22C3D6",
     "c2": "#0A3346",
@@ -465,12 +473,12 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "6,800"
   },
   "bali": {
     "city": "بالي",
     "country": "إندونيسيا",
-    "price": "4,200",
     "nights": 7,
     "c1": "#5E9E4A",
     "c2": "#13261C",
@@ -486,7 +494,8 @@
       "الفندق",
       "التنقلات",
       "الجولات"
-    ]
+    ],
+    "price": "4,200"
   }
 }
   </script>

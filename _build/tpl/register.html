@@ -1,0 +1,35 @@
+  <main id="main">
+{{apphead|حسابك في سكاي إن|إنشاء حساب|سجّل مرة واحدة، واحجز رحلاتك وتابعها من مكان واحد.}}
+    <section class="pb-24">
+      <div class="container-x">
+        <div class="panel mx-auto max-w-md p-6 md:p-10">
+          <form id="register-form" class="grid gap-5" data-app-form novalidate>
+            <div data-field>
+              <label for="r-name" class="label">الاسم الكامل</label>
+              <input id="r-name" name="name" type="text" autocomplete="name" class="field" placeholder="اكتب اسمك الكامل" required />
+              <p class="err" data-error aria-live="polite"></p>
+            </div>
+            <div data-field>
+              <label for="r-email" class="label">البريد الإلكتروني</label>
+              <input id="r-email" name="email" type="email" autocomplete="email" class="field text-right" dir="ltr" placeholder="you@example.com" required />
+              <p class="err" data-error aria-live="polite"></p>
+            </div>
+            <div data-field>
+              <label for="r-phone" class="label">رقم الجوال</label>
+              <input id="r-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="field text-right" dir="ltr" placeholder="+966 5X XXX XXXX" />
+              <p class="err" data-error aria-live="polite"></p>
+            </div>
+            <div data-field>
+              <label for="r-password" class="label">كلمة المرور</label>
+              <input id="r-password" name="password" type="password" autocomplete="new-password" minlength="8" class="field" dir="ltr" required />
+              <p class="mt-2 text-[13px] text-white/50">8 أحرف على الأقل.</p>
+              <p class="err" data-error aria-live="polite"></p>
+            </div>
+            <p class="err" data-form-error hidden aria-live="polite"></p>
+            <button type="submit" class="btn-primary w-full"><span class="spinner" data-spinner hidden></span><span data-label>إنشاء الحساب</span></button>
+          </form>
+          <p class="mt-6 text-center text-[14px] text-white/70">عندك حساب؟ <a href="login.html" class="text-skyin-cyan hover:underline" data-keep-next>سجّل دخولك</a></p>
+        </div>
+      </div>
+    </section>
+  </main>

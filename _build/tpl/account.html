@@ -1,0 +1,68 @@
+  <main id="main" data-account>
+{{apphead|حسابي|أهلاً بك|حجوزاتك وطلباتك وبيانات حسابك.}}
+    <section class="pb-24">
+      <div class="container-x grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-8">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-[22px] font-medium">حجوزاتي</h2>
+            <a href="places.html" class="btn-secondary">احجز رحلة جديدة</a>
+          </div>
+          <div class="mt-6 grid gap-4" data-bookings aria-live="polite">
+            <p class="text-white/60">جارٍ التحميل…</p>
+          </div>
+
+          <h2 class="mt-14 text-[22px] font-medium">طلبات عروض الأسعار</h2>
+          <div class="mt-6 grid gap-3" data-quotes></div>
+        </div>
+
+        <aside class="grid content-start gap-6 lg:col-span-4">
+          <div class="panel p-6">
+            <h2 class="text-[18px] font-medium">بياناتي</h2>
+            <form id="profile-form" class="mt-5 grid gap-4" data-app-form novalidate>
+              <div data-field>
+                <label for="p-name" class="label">الاسم</label>
+                <input id="p-name" name="name" type="text" autocomplete="name" class="field" />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="p-email" class="label">البريد الإلكتروني</label>
+                <input id="p-email" name="email" type="email" class="field text-right opacity-60" dir="ltr" disabled />
+              </div>
+              <div data-field>
+                <label for="p-phone" class="label">رقم الجوال</label>
+                <input id="p-phone" name="phone" type="tel" autocomplete="tel" class="field text-right" dir="ltr" />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <p class="err" data-form-error hidden aria-live="polite"></p>
+              <p class="text-[13px] text-skyin-cyan" data-form-ok hidden>تم الحفظ.</p>
+              <button type="submit" class="btn-secondary justify-self-start"><span data-label>حفظ</span></button>
+            </form>
+          </div>
+
+          <div class="panel p-6">
+            <h2 class="text-[18px] font-medium">تغيير كلمة المرور</h2>
+            <form id="password-form" class="mt-5 grid gap-4" data-app-form novalidate>
+              <div data-field>
+                <label for="pw-current" class="label">كلمة المرور الحالية</label>
+                <input id="pw-current" name="current" type="password" autocomplete="current-password" class="field" dir="ltr" />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="pw-new" class="label">كلمة المرور الجديدة</label>
+                <input id="pw-new" name="password" type="password" autocomplete="new-password" class="field" dir="ltr" />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <p class="err" data-form-error hidden aria-live="polite"></p>
+              <p class="text-[13px] text-skyin-cyan" data-form-ok hidden>تم تغيير كلمة المرور.</p>
+              <button type="submit" class="btn-secondary justify-self-start"><span data-label>تغيير</span></button>
+            </form>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="admin.html" class="btn-secondary" data-admin-only hidden>لوحة التحكم</a>
+            <button type="button" class="btn-secondary border-white/30 text-white/80" data-logout>تسجيل الخروج</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>

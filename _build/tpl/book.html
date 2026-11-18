@@ -1,0 +1,59 @@
+  <main id="main" data-book>
+{{apphead|احجز رحلتك|إتمام الحجز|اختر التاريخ وعدد المسافرين، ثم ادفع بأمان عبر مدى أو البطاقات أو Apple Pay.}}
+    <section class="pb-24">
+      <div class="container-x grid gap-8 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <div class="clip-fix relative overflow-hidden rounded-3xl" data-book-card hidden>
+            <div class="ph aspect-[4/3]" data-book-media>
+              <img alt="" class="h-full w-full object-cover" data-book-img data-fallback />
+            </div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-6">
+              <p class="text-[13px] text-white/70" data-book-country></p>
+              <h2 class="mt-1 text-[28px] font-medium" data-book-city></h2>
+              <p class="mt-1 text-[14px] text-white/80" data-book-meta></p>
+            </div>
+          </div>
+          <p class="text-white/60" data-book-loading>جارٍ التحميل…</p>
+          <p class="err" data-book-missing hidden>الوجهة غير متاحة. <a href="places.html" class="underline">اختر وجهة أخرى</a>.</p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="panel p-6 md:p-10">
+            <form id="book-form" class="grid gap-5 sm:grid-cols-2" data-app-form novalidate hidden>
+              <div data-field>
+                <label for="b-date" class="label">تاريخ السفر</label>
+                <input id="b-date" name="travel_date" type="date" class="field" required />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="b-travelers" class="label">عدد المسافرين</label>
+                <input id="b-travelers" name="travelers" type="number" min="1" max="20" value="2" inputmode="numeric" class="field" required />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field class="sm:col-span-2">
+                <label for="b-phone" class="label">رقم الجوال للتواصل</label>
+                <input id="b-phone" name="phone" type="tel" autocomplete="tel" class="field text-right" dir="ltr" placeholder="+966 5X XXX XXXX" />
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field class="sm:col-span-2">
+                <label for="b-notes" class="label">ملاحظات <span class="text-white/40">(اختياري)</span></label>
+                <textarea id="b-notes" name="notes" rows="3" class="field resize-none" placeholder="مثلاً: أعمار الأطفال، نوع الغرفة، طلبات خاصة"></textarea>
+                <p class="err" data-error aria-live="polite"></p>
+              </div>
+              <div class="flex flex-col gap-4 border-t border-white/10 pt-6 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p class="text-[13px] text-white/60">الإجمالي</p>
+                  <p class="text-[28px] font-medium" data-book-total dir="ltr">—</p>
+                  <p class="text-[13px] text-white/50" data-book-unit></p>
+                </div>
+                <button type="submit" class="btn-primary"><span class="spinner" data-spinner hidden></span><span data-label>تابع للدفع</span></button>
+              </div>
+              <p class="err sm:col-span-2" data-form-error hidden aria-live="polite"></p>
+              <p class="text-[13px] text-white/50 sm:col-span-2">بالضغط على «تابع للدفع» تنتقل إلى صفحة الدفع الآمنة. يتواصل معك فريقنا بعد الدفع لتأكيد التفاصيل.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>

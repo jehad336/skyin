@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>لوحة التحكم | سكاي إن للسفر والسياحة</title>
+  <meta name="description" content="لوحة تحكم سكاي إن." />
+  <meta name="theme-color" content="#0B0B0C" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:title" content="لوحة التحكم | سكاي إن للسفر والسياحة" />
+  <meta property="og:description" content="لوحة تحكم سكاي إن." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- Fonts: IBM Plex Sans Arabic for Arabic text, Inter for Latin letters & numbers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3, compiled & minified with the Tailwind CLI (see README) -->
+  <link rel="stylesheet" href="assets/skyin.css" />
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script src="assets/config.js" defer></script>
+  <script src="assets/skyin.js" defer></script>
+  <script src="assets/app.js" defer></script>
+  <script src="assets/admin.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
+
+  <!-- Navigation -->
+  <header class="fade-in-up absolute inset-x-0 top-0 z-30" style="--d: 100ms">
+    <nav class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 md:py-5" aria-label="القائمة الرئيسية">
+      <a href="index.html" class="block shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70" aria-label="سكاي إن للسفر والسياحة — الصفحة الرئيسية">
+        <img src="assets/skyin-logo.png" alt="سكاي إن للسفر والسياحة" width="245" height="160"
+             class="h-12 w-auto select-none drop-shadow-[0_1px_4px_rgba(0,0,0,0.15)] md:h-16" draggable="false" />
+      </a>
+      <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
+          <li><a href="about.html" class="nav-link">من نحن</a></li>
+          <li><a href="services.html" class="nav-link">خدماتنا</a></li>
+          <li><a href="locations.html" class="nav-link">فروعنا</a></li>
+          <li><a href="places.html" class="nav-link">الوجهات</a></li>
+          <li><a href="support.html" class="nav-link">الدعم</a></li>
+      </ul>
+      <div class="hidden items-center gap-6 md:flex">
+        <a href="login.html" class="nav-link" data-account-link hidden>تسجيل الدخول</a>
+        <a href="support.html#contact" class="btn-secondary">ابدأ رحلتك</a>
+      </div>
+      <button id="menu-toggle" type="button"
+              class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:hidden"
+              aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile menu (outside the animated header so `fixed` stays viewport-relative) -->
+  <div id="mobile-menu" class="fixed inset-0 z-20 bg-black/60 backdrop-blur-2xl md:hidden" aria-hidden="true" inert>
+    <nav class="flex h-full flex-col items-center justify-center gap-7 px-6" aria-label="قائمة الجوال">
+      <a href="about.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 0">من نحن</a>
+      <a href="services.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 1">خدماتنا</a>
+      <a href="locations.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 2">فروعنا</a>
+      <a href="places.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 3">الوجهات</a>
+      <a href="support.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 4">الدعم</a>
+      <a href="login.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 5" data-account-link hidden>تسجيل الدخول</a>
+      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 6">ابدأ رحلتك</a>
+    </nav>
+  </div>
+  <main id="main" data-admin class="min-h-screen pb-24 pt-28 md:pt-32">
+    <div class="container-x">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="eyebrow">الإدارة</p>
+          <h1 class="mt-2 text-[30px] font-medium md:text-[36px]">لوحة التحكم</h1>
+        </div>
+        <p class="text-[14px] text-white/60" data-admin-who></p>
+      </div>
+
+      <p class="mt-10 text-white/60" data-admin-loading>جارٍ التحميل…</p>
+      <p class="err mt-10" data-admin-denied hidden>هذه الصفحة للإدارة فقط. <a href="login.html?next=admin.html" class="underline">سجّل دخولك بحساب مدير</a>.</p>
+
+      <div data-admin-app hidden>
+        <nav class="mt-8 flex gap-2 overflow-x-auto pb-2" aria-label="أقسام لوحة التحكم" data-tabs>
+          <button type="button" class="pill-filter is-active" data-tab="overview" aria-pressed="true">نظرة عامة</button>
+          <button type="button" class="pill-filter" data-tab="bookings" aria-pressed="false">الحجوزات</button>
+          <button type="button" class="pill-filter" data-tab="quotes" aria-pressed="false">طلبات الأسعار <span data-badge="new_quotes"></span></button>
+          <button type="button" class="pill-filter" data-tab="messages" aria-pressed="false">الرسائل <span data-badge="new_messages"></span></button>
+          <button type="button" class="pill-filter" data-tab="customers" aria-pressed="false">العملاء</button>
+          <button type="button" class="pill-filter" data-tab="payments" aria-pressed="false">المدفوعات</button>
+          <button type="button" class="pill-filter" data-tab="destinations" aria-pressed="false">الوجهات</button>
+        </nav>
+
+        <div class="mt-8" data-panel aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- Admin dialog (booking details, forms) -->
+    <div id="admin-modal" class="modal fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title" hidden>
+      <div class="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
+      <div class="modal-panel relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-white/10 bg-[#111113] p-6 sm:rounded-3xl md:p-8">
+        <button type="button" class="modal-close absolute end-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10" aria-label="إغلاق" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+        <h2 id="admin-modal-title" class="pe-12 text-[22px] font-medium" data-modal-title></h2>
+        <div class="mt-6" data-modal-body></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

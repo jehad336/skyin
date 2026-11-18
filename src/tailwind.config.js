@@ -1,11 +1,11 @@
 /** Skyin Travel & Tourism — Tailwind CSS v3 config
  *  Build (from the site folder):
- *    npx tailwindcss@3 -c src/tailwind.config.js -i src/input.css -o assets/skyin.css --minify
+ *    npx tailwindcss@3 -c src/tailwind.config.js -i src/input.css -o public/assets/skyin.css --minify
  */
 module.exports = {
   content: {
     relative: true,
-    files: ['../*.html', '../assets/*.js'],
+    files: ['../public/*.html', '../public/assets/*.js', '../server/routes/gateway.js'],
   },
   theme: {
     extend: {

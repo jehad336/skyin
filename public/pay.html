@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>سكاي إن للسفر والسياحة | Skyin Travel &amp; Tourism</title>
-  <meta name="description" content="اترك التخطيط علينا، واستمتع برحلات مميزة مصممة خصيصاً لك — سكاي إن للسفر والسياحة." />
+  <title>الدفع | سكاي إن للسفر والسياحة</title>
+  <meta name="description" content="ادفع حجزك أونلاين بأمان." />
   <meta name="theme-color" content="#0B0B0C" />
+  <meta name="robots" content="noindex,nofollow" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_SA" />
-  <meta property="og:title" content="سكاي إن للسفر والسياحة | Skyin Travel &amp; Tourism" />
-  <meta property="og:description" content="اترك التخطيط علينا، واستمتع برحلات مميزة مصممة خصيصاً لك — سكاي إن للسفر والسياحة." />
+  <meta property="og:title" content="الدفع | سكاي إن للسفر والسياحة" />
+  <meta property="og:description" content="ادفع حجزك أونلاين بأمان." />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <!-- Fonts: IBM Plex Sans Arabic for Arabic text, Inter for Latin letters & numbers -->
@@ -22,6 +23,7 @@
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <script src="assets/config.js" defer></script>
   <script src="assets/skyin.js" defer></script>
+  <script src="assets/app.js" defer></script>
 </head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
@@ -40,7 +42,10 @@
           <li><a href="places.html" class="nav-link">الوجهات</a></li>
           <li><a href="support.html" class="nav-link">الدعم</a></li>
       </ul>
-      <a href="support.html#contact" class="btn-secondary hidden md:inline-flex">ابدأ رحلتك</a>
+      <div class="hidden items-center gap-6 md:flex">
+        <a href="login.html" class="nav-link" data-account-link hidden>تسجيل الدخول</a>
+        <a href="support.html#contact" class="btn-secondary">ابدأ رحلتك</a>
+      </div>
       <button id="menu-toggle" type="button"
               class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:hidden"
               aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -57,29 +62,44 @@
       <a href="locations.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 2">فروعنا</a>
       <a href="places.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 3">الوجهات</a>
       <a href="support.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 4">الدعم</a>
-      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 5">ابدأ رحلتك</a>
+      <a href="login.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 5" data-account-link hidden>تسجيل الدخول</a>
+      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 6">ابدأ رحلتك</a>
     </nav>
   </div>
+  <main id="main" data-pay>
 
-  <main id="main">
-    <section class="hero relative isolate w-full overflow-hidden bg-black">
-      <!-- Background video -->
-      <video class="bg-video absolute inset-0 -z-10 h-full w-full object-cover " autoplay loop muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/01d1f8de-fec0-4bf5-8b48-9fc2dbc8c6b0.mp4#t=0" type="video/mp4" /></video>
-      <!-- Dark gradient overlay: 10% black at top → 40% black at bottom -->
-      <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/10 to-black/40" aria-hidden="true"></div>
+  <!-- Page header (app pages: no video) -->
+  <section class="relative isolate overflow-hidden bg-gradient-to-b from-[#0b3a46]/60 to-ink pb-10 pt-32 md:pb-14 md:pt-40">
+    <div class="container-x">
+      <p class="fade-in-up eyebrow" style="--d: 100ms">الدفع الآمن</p>
+      <h1 class="fade-in-up mt-3 text-[32px] font-medium leading-[1.3] md:text-[44px]" style="--d: 200ms" data-page-title>ادفع حجزك</h1>
+      
+    </div>
+  </section>
 
-      <!-- Hero content -->
-      <div class="absolute inset-0 z-10 flex items-center justify-center px-6">
-        <div class="mx-auto w-full max-w-3xl text-center">
-          <h1 class="fade-in-up text-[38px] font-medium leading-[1.3] text-white md:text-[56px]" style="--d: 450ms">
-            سافر حول العالم<br>بدون أي توتر
-          </h1>
-          <p class="fade-in-up mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-white/80 [text-wrap:balance] md:mt-6 md:text-[18px]" style="--d: 600ms">
-            اترك التخطيط علينا، واستمتع برحلات مميزة مصممة خصيصاً لك.
-          </p>
-          <!-- Wrapper carries the entrance animation so the button's hover scale isn't overridden -->
-          <div class="fade-in-up mt-8 md:mt-10" style="--d: 750ms">
-            <a href="places.html" class="btn-primary">ابدأ الاستكشاف</a>
+    <section class="pb-24">
+      <div class="container-x">
+        <div class="panel mx-auto max-w-xl p-6 md:p-10" aria-live="polite">
+          <p class="text-white/60" data-pay-loading>جارٍ التحميل…</p>
+          <p class="err" data-pay-missing hidden>رابط الدفع غير صحيح أو منتهي. تواصل معنا للمساعدة.</p>
+
+          <div data-pay-box hidden>
+            <div class="rounded-2xl border px-4 py-3 text-[14px]" data-pay-alert hidden></div>
+            <p class="mt-6 text-[13px] text-white/60">رقم الحجز <span dir="ltr" class="font-medium text-white" data-pay-ref></span></p>
+            <h2 class="mt-2 text-[24px] font-medium" data-pay-title></h2>
+            <dl class="mt-6 grid grid-cols-2 gap-4 text-[14px]">
+              <div><dt class="text-white/50">الاسم</dt><dd class="mt-1" data-pay-name></dd></div>
+              <div><dt class="text-white/50">تاريخ السفر</dt><dd class="mt-1" data-pay-date></dd></div>
+              <div><dt class="text-white/50">المسافرون</dt><dd class="mt-1" data-pay-travelers></dd></div>
+              <div><dt class="text-white/50">الحالة</dt><dd class="mt-1" data-pay-status></dd></div>
+            </dl>
+            <div class="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <p class="text-[28px] font-medium" dir="ltr" data-pay-total></p>
+              <button type="button" class="btn-primary" data-pay-btn hidden><span class="spinner" data-spinner hidden></span><span data-label>ادفع الآن</span></button>
+            </div>
+            <p class="mt-4 text-[13px] text-white/50" data-pay-methods hidden>مدى · فيزا · ماستركارد · Apple Pay — الدفع يتم عبر بوابة ميسّر المرخّصة، ولا نحتفظ ببيانات بطاقتك.</p>
+            <p class="err mt-4" data-pay-error hidden></p>
+            <a href="account.html" class="btn-secondary mt-8" data-pay-account hidden>عرض حجوزاتي</a>
           </div>
         </div>
       </div>

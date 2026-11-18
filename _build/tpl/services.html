@@ -72,7 +72,7 @@
             <div class="reveal">
               <div class="ph relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl" style="--c1: #1AA3B8; --c2: #0E2A3A">
                 {{icon:luggage|h-14 w-14 text-white/25}}
-                <img src="assets/images/holiday.jpg" alt="وجهة سياحية ضمن باقاتنا" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/holiday.jpg" alt="وجهة سياحية ضمن باقاتنا" class="absolute inset-0 h-full w-full object-cover" loading="lazy" data-fallback />
               </div>
             </div>
             <div class="reveal" style="--i: 1">
@@ -93,7 +93,7 @@
             <div class="reveal md:order-2">
               <div class="ph relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl" style="--c1: #C26A4A; --c2: #2A1626">
                 {{icon:heart|h-14 w-14 text-white/25}}
-                <img src="assets/images/honeymoon.jpg" alt="رحلة شهر عسل" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/honeymoon.jpg" alt="رحلة شهر عسل" class="absolute inset-0 h-full w-full object-cover" loading="lazy" data-fallback />
               </div>
             </div>
             <div class="reveal md:order-1" style="--i: 1">
@@ -114,7 +114,7 @@
             <div class="reveal">
               <div class="ph relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl" style="--c1: #5E9E4A; --c2: #13261C">
                 {{icon:users|h-14 w-14 text-white/25}}
-                <img src="assets/images/family.jpg" alt="رحلة عائلية" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+                <img src="assets/images/family.jpg" alt="رحلة عائلية" class="absolute inset-0 h-full w-full object-cover" loading="lazy" data-fallback />
               </div>
             </div>
             <div class="reveal" style="--i: 1">
@@ -169,7 +169,7 @@
             <div class="text-center">
               <p class="eyebrow">عرض سعر سريع</p>
               <h2 class="section-title mt-4">احصل على عرض سعر في دقائق</h2>
-              <p class="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-white/70">أرسل لنا بعض التفاصيل، وسنرد عليك في واتساب بالخيارات والأسعار.</p>
+              <p class="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-white/70">أرسل لنا بعض التفاصيل، وسنرد عليك بالخيارات والأسعار ورابط دفع آمن.</p>
             </div>
             <form id="quote-form" class="mt-10 grid gap-5 md:grid-cols-2" novalidate>
               <div data-field>
@@ -206,8 +206,9 @@
                 <p id="q-travelers-err" class="err" data-error aria-live="polite"></p>
               </div>
               <div class="pt-2 text-center md:col-span-2">
-                <button type="submit" class="btn-primary w-full sm:w-auto">{{icon:whatsapp|h-5 w-5}} أرسل عبر واتساب</button>
-                <p class="mt-4 text-[13px] text-white/60" data-form-note hidden aria-live="polite">فتحنا لك واتساب في نافذة جديدة، اضغط «إرسال» فقط.</p>
+                <button type="submit" class="btn-primary w-full sm:w-auto"><span class="spinner" data-spinner hidden></span><span data-label>اطلب عرض السعر</span></button>
+                <p class="mt-4 text-[14px] text-white/80" data-form-note hidden aria-live="polite"></p>
+                <p class="err mt-4" data-form-error hidden aria-live="polite"></p>
               </div>
             </form>
           </div>
