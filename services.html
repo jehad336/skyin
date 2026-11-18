@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>خدماتنا | سكاي إن للسفر والسياحة</title>
+  <meta name="description" content="حجز الطيران والفنادق، والباقات السياحية، والتأشيرات، والتأمين على السفر، وسفر الشركات — مع فريق واحد." />
+  <meta name="theme-color" content="#0B0B0C" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:title" content="خدماتنا | سكاي إن للسفر والسياحة" />
+  <meta property="og:description" content="حجز الطيران والفنادق، والباقات السياحية، والتأشيرات، والتأمين على السفر، وسفر الشركات — مع فريق واحد." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- Fonts: IBM Plex Sans Arabic for Arabic text, Inter for Latin letters & numbers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3, compiled & minified with the Tailwind CLI (see README) -->
+  <link rel="stylesheet" href="assets/skyin.css" />
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script src="assets/config.js" defer></script>
+  <script src="assets/skyin.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
+
+  <!-- Navigation -->
+  <header class="fade-in-up absolute inset-x-0 top-0 z-30" style="--d: 100ms">
+    <nav class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 md:py-5" aria-label="القائمة الرئيسية">
+      <a href="index.html" class="block shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70" aria-label="سكاي إن للسفر والسياحة — الصفحة الرئيسية">
+        <img src="assets/skyin-logo.png" alt="سكاي إن للسفر والسياحة" width="245" height="160"
+             class="h-12 w-auto select-none drop-shadow-[0_1px_4px_rgba(0,0,0,0.15)] md:h-16" draggable="false" />
+      </a>
+      <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 md:flex">
+          <li><a href="about.html" class="nav-link">من نحن</a></li>
+          <li><a href="services.html" class="nav-link" aria-current="page">خدماتنا</a></li>
+          <li><a href="locations.html" class="nav-link">فروعنا</a></li>
+          <li><a href="places.html" class="nav-link">الوجهات</a></li>
+          <li><a href="support.html" class="nav-link">الدعم</a></li>
+      </ul>
+      <a href="support.html#contact" class="btn-secondary hidden md:inline-flex">ابدأ رحلتك</a>
+      <button id="menu-toggle" type="button"
+              class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:hidden"
+              aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile menu (outside the animated header so `fixed` stays viewport-relative) -->
+  <div id="mobile-menu" class="fixed inset-0 z-20 bg-black/60 backdrop-blur-2xl md:hidden" aria-hidden="true" inert>
+    <nav class="flex h-full flex-col items-center justify-center gap-7 px-6" aria-label="قائمة الجوال">
+      <a href="about.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 0">من نحن</a>
+      <a href="services.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 1" aria-current="page">خدماتنا</a>
+      <a href="locations.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 2">فروعنا</a>
+      <a href="places.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 3">الوجهات</a>
+      <a href="support.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 4">الدعم</a>
+      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 5">ابدأ رحلتك</a>
+    </nav>
+  </div>
+
+  <main id="main">
+
+  <!-- Hero -->
+  <section class="relative isolate flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden bg-ink">
+    <video class="bg-video absolute inset-0 -z-10 h-full w-full object-cover " autoplay loop muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/01d1f8de-fec0-4bf5-8b48-9fc2dbc8c6b0.mp4#t=6" type="video/mp4" /></video>
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/20 via-black/30 to-ink" aria-hidden="true"></div>
+    <div class="mx-auto w-full max-w-3xl px-6 pt-16 text-center">
+      <p class="fade-in-up eyebrow" style="--d: 350ms">خدماتنا</p>
+      <h1 class="fade-in-up page-title mt-4" style="--d: 450ms">كل ما تحتاجه<br>لرحلة مثالية</h1>
+      <p class="fade-in-up lead mx-auto mt-5 max-w-xl [text-wrap:balance] md:mt-6" style="--d: 600ms">فريق واحد للطيران والفنادق والتأشيرات وكل التفاصيل.</p>
+    </div>
+  </section>
+
+
+    <!-- Services grid -->
+    <section class="section">
+      <div class="container-x">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-6" data-stagger="3">
+          <div class="reveal">
+            <article class="card flex h-full flex-col">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 rtl:-scale-x-100" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+              <h3 class="mt-6 text-[20px] font-medium">حجز الطيران</h3>
+              <p class="mt-3 text-[15px] leading-relaxed text-white/70">أفضل المسارات والأسعار على شركات طيران موثوقة، مع ترتيب المقاعد والأمتعة.</p>
+              <a href="#quote" data-service="حجز الطيران" class="group/link mt-auto inline-flex items-center gap-2 pt-6 text-[14px] text-white/90 transition-colors hover:text-white">اطلب عرض سعر <span class="transition-transform duration-300 group-hover/link:-translate-x-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 rtl:-scale-x-100" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="card flex h-full flex-col">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></svg></div>
+              <h3 class="mt-6 text-[20px] font-medium">حجز الفنادق</h3>
+              <p class="mt-3 text-[15px] leading-relaxed text-white/70">فنادق ومنتجعات مختارة لكل الميزانيات، من وسط المدينة إلى الفلل على البحر.</p>
+              <a href="#quote" data-service="حجز الفنادق" class="group/link mt-auto inline-flex items-center gap-2 pt-6 text-[14px] text-white/90 transition-colors hover:text-white">اطلب عرض سعر <span class="transition-transform duration-300 group-hover/link:-translate-x-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 rtl:-scale-x-100" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="card flex h-full flex-col">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2"/><path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14"/><path d="M10 20h4"/><circle cx="16" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg></div>
+              <h3 class="mt-6 text-[20px] font-medium">الباقات السياحية</h3>
+              <p class="mt-3 text-[15px] leading-relaxed text-white/70">باقات جاهزة أو مخصصة تجمع الطيران والفندق والتنقلات والجولات.</p>
+              <a href="#quote" data-service="الباقات السياحية" class="group/link mt-auto inline-flex items-center gap-2 pt-6 text-[14px] text-white/90 transition-colors hover:text-white">اطلب عرض سعر <span class="transition-transform duration-300 group-hover/link:-translate-x-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 rtl:-scale-x-100" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="card flex h-full flex-col">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 17h8"/></svg></div>
+              <h3 class="mt-6 text-[20px] font-medium">خدمات التأشيرات</h3>
+              <p class="mt-3 text-[15px] leading-relaxed text-white/70">نوضح لك المتطلبات، ونساعدك في تجهيز الأوراق، ونتابع طلبك.</p>
+              <a href="#quote" data-service="خدمات التأشيرات" class="group/link mt-auto inline-flex items-center gap-2 pt-6 text-[14px] text-white/90 transition-colors hover:text-white">اطلب عرض سعر <span class="transition-transform duration-300 group-hover/link:-translate-x-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 rtl:-scale-x-100" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="card flex h-full flex-col">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+              <h3 class="mt-6 text-[20px] font-medium">التأمين على السفر</h3>
+              <p class="mt-3 text-[15px] leading-relaxed text-white/70">تغطية للطوارئ الطبية وتأخير الرحلات وفقدان الأمتعة، لتسافر وأنت مطمئن.</p>
+              <a href="#quote" data-service="التأمين على السفر" class="group/link mt-auto inline-flex items-center gap-2 pt-6 text-[14px] text-white/90 transition-colors hover:text-white">اطلب عرض سعر <span class="transition-transform duration-300 group-hover/link:-translate-x-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 rtl:-scale-x-100" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+            </article>
+          </div>
+          <div class="reveal">
+            <article class="card flex h-full flex-col">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <h3 class="mt-6 text-[20px] font-medium">سفر الشركات</h3>
+              <p class="mt-3 text-[15px] leading-relaxed text-white/70">ندير رحلات العمل من البداية للنهاية، بحجوزات مرنة وشخص واحد يتابع معك.</p>
+              <a href="#quote" data-service="سفر الشركات" class="group/link mt-auto inline-flex items-center gap-2 pt-6 text-[14px] text-white/90 transition-colors hover:text-white">اطلب عرض سعر <span class="transition-transform duration-300 group-hover/link:-translate-x-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 rtl:-scale-x-100" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured services -->
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="eyebrow">الأكثر طلباً</p>
+          <h2 class="section-title mt-4">رحلات نحب تنظيمها</h2>
+        </div>
+
+        <div class="mt-14 space-y-20 md:mt-20 md:space-y-28">
+          <!-- Row 1 -->
+          <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <div class="reveal">
+              <div class="ph relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl" style="--c1: #1AA3B8; --c2: #0E2A3A">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-14 w-14 text-white/25" aria-hidden="true"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2"/><path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14"/><path d="M10 20h4"/><circle cx="16" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg>
+                <img src="assets/images/holiday.jpg" alt="وجهة سياحية ضمن باقاتنا" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+              </div>
+            </div>
+            <div class="reveal" style="--i: 1">
+              <p class="eyebrow">العطلات</p>
+              <h3 class="section-title mt-4">باقات سياحية متكاملة</h3>
+              <p class="body-copy mt-5">الطيران والفندق والتنقلات والجولات في خطة واحدة بسيطة، حسب مواعيدك وميزانيتك.</p>
+              <ul class="mt-6 space-y-3 text-[15px] text-white/80">
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>الطيران والفندق والتنقلات بسعر واحد</li>
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>جولات سياحية ورحلات يومية</li>
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>مواعيد ومدة مرنة</li>
+              </ul>
+              <a href="#quote" data-service="الباقات السياحية" class="btn-secondary mt-8">اطلب عرض سعر</a>
+            </div>
+          </div>
+
+          <!-- Row 2 (reversed) -->
+          <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <div class="reveal md:order-2">
+              <div class="ph relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl" style="--c1: #C26A4A; --c2: #2A1626">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-14 w-14 text-white/25" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                <img src="assets/images/honeymoon.jpg" alt="رحلة شهر عسل" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+              </div>
+            </div>
+            <div class="reveal md:order-1" style="--i: 1">
+              <p class="eyebrow">شهر العسل</p>
+              <h3 class="section-title mt-4">شهر عسل لا يُنسى</h3>
+              <p class="body-copy mt-5">رحلات رومانسية مع فلل خاصة ولمسات مميزة وأيام هادئة في أجمل الأماكن.</p>
+              <ul class="mt-6 space-y-3 text-[15px] text-white/80">
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>فلل وأجنحة خاصة</li>
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>عشاء وتجارب رومانسية</li>
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>مفاجآت لطيفة عند الوصول</li>
+              </ul>
+              <a href="#quote" data-service="الباقات السياحية" class="btn-secondary mt-8">اطلب عرض سعر</a>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+            <div class="reveal">
+              <div class="ph relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl" style="--c1: #5E9E4A; --c2: #13261C">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-14 w-14 text-white/25" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <img src="assets/images/family.jpg" alt="رحلة عائلية" class="absolute inset-0 h-full w-full object-cover" loading="lazy" onerror="this.remove()" />
+              </div>
+            </div>
+            <div class="reveal" style="--i: 1">
+              <p class="eyebrow">العائلة</p>
+              <h3 class="section-title mt-4">عطلات عائلية بكل سهولة</h3>
+              <p class="body-copy mt-5">فنادق مناسبة للأطفال، وغرف متصلة، وأنشطة تعجب الجميع، حتى ترتاح العائلة كلها.</p>
+              <ul class="mt-6 space-y-3 text-[15px] text-white/80">
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>غرف عائلية وأجنحة متصلة</li>
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>أنشطة وألعاب للأطفال</li>
+                <li class="flex items-start gap-3"><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>توصيل خاص للعائلة كلها</li>
+              </ul>
+              <a href="#quote" data-service="الباقات السياحية" class="btn-secondary mt-8">اطلب عرض سعر</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Skyin -->
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="panel grid grid-cols-2 overflow-hidden lg:grid-cols-4" data-stagger>
+          <div class="reveal p-6 md:p-8">
+            <span class="text-skyin-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span>
+            <h3 class="mt-4 text-[16px] font-medium">برامج على ذوقك</h3>
+            <p class="mt-1.5 text-[14px] leading-relaxed text-white/60">كل خطة نصممها لك أنت.</p>
+          </div>
+          <div class="reveal border-s border-white/10 p-6 md:p-8">
+            <span class="text-skyin-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3 class="mt-4 text-[16px] font-medium">شركاء موثوقون</h3>
+            <p class="mt-1.5 text-[14px] leading-relaxed text-white/60">شركات طيران وفنادق نعرفها جيداً.</p>
+          </div>
+          <div class="reveal border-t border-white/10 p-6 md:p-8 lg:border-s lg:border-t-0">
+            <span class="text-skyin-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+            <h3 class="mt-4 text-[16px] font-medium">تأكيد سريع</h3>
+            <p class="mt-1.5 text-[14px] leading-relaxed text-white/60">ردود سريعة وحجوزات واضحة.</p>
+          </div>
+          <div class="reveal border-s border-t border-white/10 p-6 md:p-8 lg:border-t-0">
+            <span class="text-skyin-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span>
+            <h3 class="mt-4 text-[16px] font-medium">دعم <span dir="ltr">24/7</span></h3>
+            <p class="mt-1.5 text-[14px] leading-relaxed text-white/60">فريق حقيقي معك ليلاً ونهاراً.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick quote -->
+    <section id="quote" class="section pt-0">
+      <div class="container-x">
+        <div class="reveal mx-auto max-w-3xl">
+          <div class="panel p-6 md:p-10">
+            <div class="text-center">
+              <p class="eyebrow">عرض سعر سريع</p>
+              <h2 class="section-title mt-4">احصل على عرض سعر في دقائق</h2>
+              <p class="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-white/70">أرسل لنا بعض التفاصيل، وسنرد عليك في واتساب بالخيارات والأسعار.</p>
+            </div>
+            <form id="quote-form" class="mt-10 grid gap-5 md:grid-cols-2" novalidate>
+              <div data-field>
+                <label for="q-name" class="label">الاسم الكامل</label>
+                <input id="q-name" name="name" type="text" autocomplete="name" class="field" placeholder="اكتب اسمك" data-rule="name" aria-describedby="q-name-err" />
+                <p id="q-name-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="q-phone" class="label">رقم الجوال</label>
+                <input id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="field text-right" placeholder="+966 5X XXX XXXX" data-rule="phone" aria-describedby="q-phone-err" dir="ltr" />
+                <p id="q-phone-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field class="md:col-span-2">
+                <label for="q-service" class="label">الخدمة</label>
+                <select id="q-service" name="service" class="field" data-rule="choice" aria-describedby="q-service-err">
+                  <option value="">اختر الخدمة</option>
+                  <option>حجز الطيران</option>
+                  <option>حجز الفنادق</option>
+                  <option>الباقات السياحية</option>
+                  <option>خدمات التأشيرات</option>
+                  <option>التأمين على السفر</option>
+                  <option>سفر الشركات</option>
+                </select>
+                <p id="q-service-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="q-date" class="label">تاريخ السفر</label>
+                <input id="q-date" name="date" type="date" class="field" data-rule="date" aria-describedby="q-date-err" />
+                <p id="q-date-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div data-field>
+                <label for="q-travelers" class="label">عدد المسافرين</label>
+                <input id="q-travelers" name="travelers" type="number" min="1" max="50" value="2" inputmode="numeric" class="field" data-rule="travelers" aria-describedby="q-travelers-err" />
+                <p id="q-travelers-err" class="err" data-error aria-live="polite"></p>
+              </div>
+              <div class="pt-2 text-center md:col-span-2">
+                <button type="submit" class="btn-primary w-full sm:w-auto"><svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#25D366" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 7.9c.2-.4.5-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.1.1-.2.3-.1.5.6 1.1 1.5 2 2.6 2.6.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.3.4.5v.6c0 .4-.2.7-.5.9-.6.4-1.4.6-2.2.4-2.6-.6-4.7-2.7-5.4-5.3-.2-.8 0-1.6.5-2.2z" fill="#25D366"/></svg> أرسل عبر واتساب</button>
+                <p class="mt-4 text-[13px] text-white/60" data-form-note hidden aria-live="polite">فتحنا لك واتساب في نافذة جديدة، اضغط «إرسال» فقط.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-ink text-[14px] text-white/60">
+    <div class="container-x py-16 md:py-20">
+      <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-12">
+        <div class="sm:col-span-2 md:col-span-4">
+          <a href="index.html" class="inline-block" aria-label="سكاي إن للسفر والسياحة — الصفحة الرئيسية">
+            <img src="assets/skyin-logo.png" alt="سكاي إن للسفر والسياحة" width="245" height="160" class="h-16 w-auto" loading="lazy" />
+          </a>
+          <p class="mt-5 max-w-xs text-[15px] leading-relaxed text-white/70">سافر حول العالم بدون أي توتر.</p>
+        </div>
+        <div class="md:col-span-2">
+          <h2 class="text-[14px] font-medium text-white">الصفحات</h2>
+          <ul class="mt-5 space-y-3">
+            <li><a href="about.html" class="transition-colors hover:text-white">من نحن</a></li>
+            <li><a href="services.html" class="transition-colors hover:text-white">خدماتنا</a></li>
+            <li><a href="locations.html" class="transition-colors hover:text-white">فروعنا</a></li>
+            <li><a href="places.html" class="transition-colors hover:text-white">الوجهات</a></li>
+            <li><a href="support.html" class="transition-colors hover:text-white">الدعم</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <h2 class="text-[14px] font-medium text-white">تواصل معنا</h2>
+          <ul class="mt-5 space-y-3">
+            <li><a data-href="phone" href="#" class="inline-flex items-center gap-3 transition-colors hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-skyin-cyan" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-config="phone" dir="ltr">+966 50 000 0000</span></a></li>
+            <li><a data-href="whatsapp" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-3 transition-colors hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-skyin-cyan" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>واتساب</span></a></li>
+            <li><a data-href="email" href="#" class="inline-flex items-center gap-3 transition-colors hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-skyin-cyan" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-config="email" dir="ltr">info@yourdomain.com</span></a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <h2 class="text-[14px] font-medium text-white">تابعنا</h2>
+          <div class="mt-5 flex flex-wrap gap-2"><a href="#" data-social="instagram" target="_blank" rel="noopener" aria-label="إنستغرام" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a><a href="#" data-social="x" target="_blank" rel="noopener" aria-label="إكس" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="currentColor" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#" data-social="snapchat" target="_blank" rel="noopener" aria-label="سناب شات" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 2.8c-2.7 0-4.7 2-4.7 4.8v2.3l-1.8-.5c-.7-.2-1.1.7-.5 1.1l1.9 1.2c-.5 2-2 3.6-3.9 4.3-.5.2-.4.9.1 1.1l1.7.4.3 1.2c.1.3.4.5.7.4l1.4-.2c.7-.1 1.3.1 1.8.5.8.6 1.6 1.1 2.6 1.1s1.8-.5 2.6-1.1c.5-.4 1.1-.6 1.8-.5l1.4.2c.3.1.6-.1.7-.4l.3-1.2 1.7-.4c.5-.2.6-.9.1-1.1-1.9-.7-3.4-2.3-3.9-4.3l1.9-1.2c.6-.4.2-1.3-.5-1.1l-1.8.5V7.6c0-2.8-2-4.8-4.7-4.8z"/></svg></a><a href="#" data-social="tiktok" target="_blank" rel="noopener" aria-label="تيك توك" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V2.5"/><path d="M13 2.5c.4 2.8 2.4 4.9 5.5 5.2"/></svg></a></div>
+        </div>
+      </div>
+      <div class="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+        <p>© <span data-year>2026</span> سكاي إن للسفر والسياحة<span class="hidden text-white/30 sm:inline"> · </span><br class="sm:hidden" /><span class="mt-1 inline-block whitespace-nowrap sm:mt-0" lang="en" dir="ltr">Skyin Travel &amp; Tourism</span></p>
+        <p>رقم الترخيص: <span data-config="licenseNo" dir="ltr">0000000</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <div class="wa-float fixed bottom-5 end-5 z-40 md:bottom-8 md:end-8">
+    <a data-href="whatsapp" href="#" target="_blank" rel="noopener" aria-label="تواصل مع سكاي إن عبر واتساب"
+       class="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
+      <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#25D366" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 7.9c.2-.4.5-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.1.1-.2.3-.1.5.6 1.1 1.5 2 2.6 2.6.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.3.4.5v.6c0 .4-.2.7-.5.9-.6.4-1.4.6-2.2.4-2.6-.6-4.7-2.7-5.4-5.3-.2-.8 0-1.6.5-2.2z" fill="#25D366"/></svg>
+    </a>
+  </div>
+</body>
+</html>
