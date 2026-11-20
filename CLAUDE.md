@@ -81,7 +81,9 @@ Always run `npm run build` after changing templates, build.py, input.css or clas
 - Respect `prefers-reduced-motion` (already handled in `src/input.css`).
 
 ## Open items
-- **Hosting not chosen yet** (needs Node + PostgreSQL; GitHub Pages can't run it).
+- **Hosting not chosen yet** (needs Node + PostgreSQL; GitHub Pages can't run it). Meanwhile a **static preview** deploys to GitHub Pages
+  (`.github/workflows/pages.yml`, on push to main → https://jehad336.github.io/skyin/). With no `/api`, app.js adds
+  `.no-api`: app pages show a "preview" notice, the modal's book button is hidden, forms fall back to WhatsApp.
 - **Moyasar merchant account + keys** needed for real payments (`PAYMENT_PROVIDER=moyasar`, `MOYASAR_SECRET_KEY`,
   `PAYMENT_WEBHOOK_KEY`). Webhook payload/signature docs weren't confirmed — the code only uses the callback as a
   hint and re-fetches the invoice, so it is safe either way. Test with Moyasar test cards before going live.

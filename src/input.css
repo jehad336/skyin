@@ -35,6 +35,8 @@ body.menu-open .site-header { --fg: 31 26 23; --inv: 255 255 255; --accent: 7 12
   html { background-color: rgb(var(--paper)); -webkit-text-size-adjust: 100%; }
   body { @apply bg-paper font-sans text-fg antialiased; }
   [hidden] { display: none !important; }
+  /* Static preview (no backend): hide "book & pay online" buttons */
+  .no-api [data-m="book"] { display: none !important; }
   [id] { scroll-margin-top: 24px; }
   ::selection { background: #EE790E; color: #fff; }
 }

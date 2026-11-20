@@ -369,6 +369,7 @@
 
   /* ---------- Boot ---------- */
   S.me().then((u) => {
+    if (u === undefined) return; // static preview: app.js shows the notice
     $('[data-admin-loading]').hidden = true;
     if (!u || u.role !== 'admin') { $('[data-admin-denied]').hidden = false; return; }
     myId = u.id;

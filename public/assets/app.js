@@ -43,6 +43,31 @@
     return mePromise;
   };
 
+  /* ---------- Static preview (no backend, e.g. GitHub Pages) ----------
+     Accounts, booking and payment need the server: on a static host show a short notice instead. */
+  const APP_PAGE = $('[data-account], [data-book], [data-pay], [data-admin], #login-form, #register-form');
+  me().then((u) => {
+    if (u !== undefined) return;
+    document.documentElement.classList.add('no-api');
+    const main = APP_PAGE && $('#main');
+    if (!main) return;
+    Array.from(main.children).forEach((el) => { el.hidden = true; });
+    const C = window.SKYIN_CONFIG || {};
+    const wa = 'https://wa.me/' + String(C.whatsapp || '').replace(/\D/g, '') + '?text=' + encodeURIComponent('مرحباً سكاي إن، أبغى أحجز رحلة');
+    const box = document.createElement('section');
+    box.className = 'container-x flex min-h-[70vh] items-center justify-center pb-20 pt-32';
+    box.innerHTML = `
+      <div class="panel max-w-lg p-8 text-center sm:p-10">
+        <h1 class="section-title text-[26px] sm:text-[30px]">هذه نسخة عرض من الموقع</h1>
+        <p class="mt-4 text-[15px] leading-relaxed text-fg/70">الحسابات والحجز والدفع أونلاين متاحة على الموقع الكامل قريباً. للحجز الآن تواصل معنا مباشرة وفريقنا يخدمك.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a class="btn-primary" href="${esc(wa)}" target="_blank" rel="noopener">تواصل عبر واتساب</a>
+          <a class="btn-secondary" href="places.html">تصفّح الوجهات</a>
+        </div>
+      </div>`;
+    main.prepend(box);
+  });
+
   /* ---------- Formatting ---------- */
   const latin = (s) => String(s).replace(/[٠-٩۰-۹]/g, (c) => String(c.charCodeAt(0) & 0xF));
   const money = (n) => Number(n).toLocaleString('en-US', { maximumFractionDigits: 2 }) + ' SAR';
@@ -145,6 +170,7 @@
   const account = $('[data-account]');
   if (account) {
     me().then(async (u) => {
+      if (u === undefined) return; // static preview
       if (!u) { location.replace(loginUrl()); return; }
       $('[data-page-title]').textContent = `أهلاً ${u.name.split(' ')[0]}`;
       const pf = $('#profile-form');
@@ -207,6 +233,7 @@
     const slug = params.get('d') || '';
     const form = $('#book-form');
     Promise.all([me(), api('GET', `/destinations/${encodeURIComponent(slug)}`).catch(() => null)]).then(([u, res]) => {
+      if (u === undefined) return; // static preview
       $('[data-book-loading]').hidden = true;
       if (!res) { $('[data-book-missing]').hidden = false; return; }
       if (!u) { location.replace(loginUrl()); return; }
