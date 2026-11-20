@@ -54,14 +54,17 @@ npm run build        # = python _build/build.py  +  Tailwind compile/minify
 Always run `npm run build` after changing templates, build.py, input.css or class names in JS.
 
 ## Design rules
-- **Light theme** (owner asked: no black backgrounds). Beige page `paper` #F7F2EA, white `surface` cards, warm dark text `fg` #1F1A17,
-  `sand` footer. Brand cyan `#04B2CD` / orange `#EE790E` for fills; text uses `text-accent` / `text-warn` (darker, readable).
+- **Light theme** (owner asked: no black backgrounds; then preferred white over beige). White page `paper`, white `surface`
+  cards with a border + soft shadow, warm dark text `fg` #1F1A17, light warm-grey `sand` footer #F5F4F1. Brand cyan `#04B2CD` / orange `#EE790E` for fills; text uses `text-accent` / `text-warn` (darker, readable).
 - Use the theme tokens, never `text-white`/`bg-ink` for page content: `text-fg`, `text-fg/70`, `border-fg/10`, `bg-surface`,
   `bg-paper`, `btn-primary` = `bg-fg text-inv`. They are CSS variables in `src/input.css`.
 - Anything on a video or photo (heroes, CTA band, destination cards, nav over a video hero) gets **`.on-media`**,
   which flips the tokens to white text. `nav(page, on_media=…)` in build.py: marketing pages yes, app pages no.
-- Hero video is a ~2s clip: it plays **once** at 0.4x and holds the last frame with a slow CSS zoom (no `loop` —
-  the owner found the fast repeat annoying). See section 2 of skyin.js.
+- Home hero video: Mixkit #4204 "pink sunset from a plane window" (free licence, 29s), hot-linked from assets.mixkit.co
+  (720p desktop / 360p phones, chosen in skyin.js). Plays **once at normal speed** and holds the last frame with a slow zoom
+  — owner found a fast loop annoying and 0.4x too slow. CSP `media-src` allows assets.mixkit.co.
+- Sub-page heroes use their own photo (`{{hero|…|hero-<page>}}`); all page photos are in `PHOTOS` in build.py
+  (Unsplash IDs, used as `{{photo:key|w|h}}`).
 - CSS/JS links carry `?v=<build time>` (build.py `V`) so browsers pick up changes after each build.
 - Fonts: IBM Plex Sans Arabic (Arabic) + Inter (Latin letters & numbers), from Google Fonts.
 - Arabic typography: **no letter-spacing or uppercase on Arabic text** (breaks joined letters);
@@ -92,7 +95,7 @@ Always run `npm run build` after changing templates, build.py, input.css or clas
 - **Photos**: destinations use free Unsplash photos (Unsplash License — commercial use, no attribution required),
   hot-linked from images.unsplash.com; URLs + credit links in `data/destinations.json` (`image`, `image_credit`),
   copied into `destinations.image_url` on seed (only where empty). Replace from the dashboard (image URL field).
-  Still missing: about.jpg, holiday/honeymoon/family.jpg (gradient placeholders; names in `public/assets/images/README.txt`).
+  Page photos (heroes, about, holiday/honeymoon/family, login/register) are also Unsplash — see `PHOTOS` in build.py.
 
 ## Checking work
 `npm test` must pass. Render every page at 1440px and 390px wide: no console errors (missing photos 404 is expected),

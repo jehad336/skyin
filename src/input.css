@@ -5,7 +5,7 @@
 /* =========================================================
    Skyin Travel & Tourism — design system (light theme)
    Brand: cyan #04B2CD · orange #EE790E
-   Page: warm beige paper #F7F2EA · white surfaces · warm ink text #1F1A17
+   Page: white #FFFFFF · light warm-grey footer #F5F4F1 · warm ink text #1F1A17
 
    Colours are CSS variables (RGB channels) so Tailwind opacity modifiers work:
      text-fg / text-fg/70 · bg-paper · bg-surface · bg-sand · text-accent · text-warn · bg-fg text-inv
@@ -15,9 +15,9 @@
 :root {
   --fg: 31 26 23;          /* text */
   --inv: 255 255 255;      /* text on a solid fg background (primary button) */
-  --paper: 247 242 234;    /* page background (beige) */
+  --paper: 255 255 255;    /* page background (white) */
   --surface: 255 255 255;  /* cards, panels, fields */
-  --sand: 239 230 216;     /* footer, subtle bands */
+  --sand: 245 244 241;     /* footer, subtle bands */
   --accent: 7 122 140;     /* cyan, darkened for readable text on light backgrounds */
   --warn: 180 83 10;       /* orange, darkened for readable text */
 }
@@ -99,11 +99,12 @@ html, body, * { scrollbar-width: none; -ms-overflow-style: none; }
 .hero { height: 100vh; }
 @supports (height: 100dvh) { .hero { height: 100dvh; } }
 
-/* ---------- Background videos ----------
-   The clip is ~2s, so it plays once in slow motion (skyin.js) and holds its last frame,
-   while a very slow zoom keeps the scene alive — no visible restart. */
+/* ---------- Background videos & hero photos ----------
+   The home video (29s) plays once at normal speed and holds its last frame (skyin.js);
+   a very slow zoom keeps the scene alive. Sub-page heroes are photos with the same slow zoom. */
 .bg-video { opacity: 0; transition: opacity 1.4s ease-out; transform-origin: 50% 40%; }
-.bg-video.is-ready { opacity: 1; animation: slowZoom 24s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.bg-video.is-ready { opacity: 1; animation: slowZoom 40s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.bg-photo { transform-origin: 50% 40%; animation: slowZoom 30s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
 
 /* ---------- Photo placeholders: brand-toned gradient until a real photo is added ---------- */

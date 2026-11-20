@@ -36,14 +36,16 @@
   document.addEventListener('error', (e) => { const t = e.target; if (t && t.tagName === 'IMG' && t.hasAttribute('data-fallback')) dropImg(t); }, true);
 
   /* ---------- 2. Background videos ----------
-     The clip is only ~2 seconds, so instead of looping (a jumpy restart every 2s) it plays ONCE
-     in slow motion, then holds its last frame; CSS adds a very slow zoom so the scene stays alive.
+     A 29-second clip that plays ONCE at normal speed and then holds its last frame (no restart);
+     CSS adds a very slow zoom so the scene stays alive. Phones get the light 360p file.
      Reduced motion: show a still frame. */
-  const VIDEO_RATE = 0.4;
+  const VIDEO_RATE = 1;
   const videos = $$('video.bg-video');
   videos.forEach((v) => {
     v.muted = true;
     v.loop = false;
+    const src = (isMobile() && v.dataset.srcSm) || v.dataset.src;
+    if (src && !v.getAttribute('src')) v.src = src;
     const ready = () => v.classList.add('is-ready');
     if (v.readyState >= 2) ready(); else v.addEventListener('loadeddata', ready, { once: true });
     if (reduceMotion) {

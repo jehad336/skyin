@@ -2,7 +2,8 @@
 {{apphead|حسابك في سكاي إن|تسجيل الدخول|تابع حجوزاتك وادفع أونلاين بأمان.}}
     <section class="pb-24">
       <div class="container-x">
-        <div class="panel mx-auto max-w-md p-6 md:p-10">
+        <div class="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
+        <div class="panel p-6 md:p-10">
           <form id="login-form" class="grid gap-5" data-app-form novalidate>
             <div data-field>
               <label for="l-email" class="label">البريد الإلكتروني</label>
@@ -18,6 +19,10 @@
             <button type="submit" class="btn-primary w-full"><span class="spinner" data-spinner hidden></span><span data-label>دخول</span></button>
           </form>
           <p class="mt-6 text-center text-[14px] text-fg/70">ما عندك حساب؟ <a href="register.html" class="text-accent hover:underline" data-keep-next>أنشئ حساباً جديداً</a></p>
+        </div>
+        <div class="clip-fix relative hidden min-h-[420px] overflow-hidden rounded-3xl lg:block">
+          <img src="{{photo:auth|900|1200}}" alt="" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
+        </div>
         </div>
       </div>
     </section>

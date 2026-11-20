@@ -27,7 +27,7 @@ function createApp() {
         'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
         'font-src': ["'self'", 'https://fonts.gstatic.com'],
         'img-src': ["'self'", 'data:', 'https:'],
-        'media-src': ["'self'", 'https://cdn.sceneai.art'],
+        'media-src': ["'self'", 'https://assets.mixkit.co'],
         'frame-src': ['https://www.google.com'],
         'connect-src': ["'self'"],
         'form-action': ["'self'"],

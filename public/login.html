@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>تسجيل الدخول | سكاي إن للسفر والسياحة</title>
   <meta name="description" content="سجّل دخولك إلى حسابك في سكاي إن." />
-  <meta name="theme-color" content="#F7F2EA" />
+  <meta name="theme-color" content="#FFFFFF" />
   <meta name="robots" content="noindex,nofollow" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_SA" />
@@ -19,11 +19,11 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS v3, compiled & minified with the Tailwind CLI (see README) -->
-  <link rel="stylesheet" href="assets/skyin.css?v=1795162776" />
+  <link rel="stylesheet" href="assets/skyin.css?v=1795163392" />
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <script src="assets/config.js?v=1795162776" defer></script>
-  <script src="assets/skyin.js?v=1795162776" defer></script>
-  <script src="assets/app.js?v=1795162776" defer></script>
+  <script src="assets/config.js?v=1795163392" defer></script>
+  <script src="assets/skyin.js?v=1795163392" defer></script>
+  <script src="assets/app.js?v=1795163392" defer></script>
 </head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
@@ -69,7 +69,7 @@
   <main id="main">
 
   <!-- Page header (app pages: no video) -->
-  <section class="relative isolate overflow-hidden bg-gradient-to-b from-[#DCEFF2] to-paper pb-10 pt-32 md:pb-14 md:pt-40">
+  <section class="relative isolate overflow-hidden bg-gradient-to-b from-[#E8F6F8] to-paper pb-10 pt-32 md:pb-14 md:pt-40">
     <div class="container-x">
       <p class="fade-in-up eyebrow" style="--d: 100ms">حسابك في سكاي إن</p>
       <h1 class="fade-in-up mt-3 text-[32px] font-medium leading-[1.3] md:text-[44px]" style="--d: 200ms" data-page-title>تسجيل الدخول</h1>
@@ -79,7 +79,8 @@
 
     <section class="pb-24">
       <div class="container-x">
-        <div class="panel mx-auto max-w-md p-6 md:p-10">
+        <div class="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
+        <div class="panel p-6 md:p-10">
           <form id="login-form" class="grid gap-5" data-app-form novalidate>
             <div data-field>
               <label for="l-email" class="label">البريد الإلكتروني</label>
@@ -95,6 +96,10 @@
             <button type="submit" class="btn-primary w-full"><span class="spinner" data-spinner hidden></span><span data-label>دخول</span></button>
           </form>
           <p class="mt-6 text-center text-[14px] text-fg/70">ما عندك حساب؟ <a href="register.html" class="text-accent hover:underline" data-keep-next>أنشئ حساباً جديداً</a></p>
+        </div>
+        <div class="clip-fix relative hidden min-h-[420px] overflow-hidden rounded-3xl lg:block">
+          <img src="https://images.unsplash.com/photo-1613474616705-e1c09211497d?auto=format&fit=crop&w=900&h=1200&q=70" alt="" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
+        </div>
         </div>
       </div>
     </section>

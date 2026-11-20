@@ -16,7 +16,27 @@ TPL = ROOT / "tpl"
 OUT = ROOT.parent / "public"  # web root served by the backend (server/)
 DATA = ROOT.parent / "data" / "destinations.json"
 
-VIDEO = "https://cdn.sceneai.art/Hero%20Section%20Video/01d1f8de-fec0-4bf5-8b48-9fc2dbc8c6b0.mp4"
+# Hero video: "Pink sunset seen from a plane window" (Mixkit, free licence, 29s). 720p for desktop, 360p for phones.
+VIDEO = "https://assets.mixkit.co/videos/4204/4204-720.mp4"
+VIDEO_SM = "https://assets.mixkit.co/videos/4204/4204-360.mp4"
+
+# Page photos — free Unsplash photos (Unsplash License: commercial use, no attribution required).
+PHOTOS = {
+    "hero-about": "1637139498630-9a580b24fa75",      # road towards the mountains
+    "hero-services": "1628354215124-dd0ab72828ac",   # airliner at the gate, from above
+    "hero-locations": "1694018359679-49465b4c0d61",  # Kingdom Centre, Riyadh, at sunset
+    "hero-places": "1570077188670-e3a8d69ac5ff",     # Santorini
+    "hero-support": "1511068797325-6083f0f872b1",    # hand pointing at a world map
+    "about": "1527631615371-98cbbff5125a",           # traveller with a backpack by a lake
+    "holiday": "1540541338287-41700207dee6",         # resort pool by the ocean
+    "honeymoon": "1671547199419-60db7d9578bb",       # overwater villa at sunset
+    "family": "1496275068113-fff8c90750d1",          # family silhouettes on the beach
+    "auth": "1613474616705-e1c09211497d",            # plane wing over the clouds
+}
+
+
+def photo(key, w="1600", h="900"):
+    return f"https://images.unsplash.com/photo-{PHOTOS[key]}?auto=format&fit=crop&w={w}&h={h}&q=70"
 BRAND = "سكاي إن للسفر والسياحة"
 V = str(int(time.time()))  # cache-busting version for CSS/JS links, changes every build
 
@@ -33,7 +53,7 @@ def head(title, description, robots="index,follow", base="", extra_js=""):
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>{title}</title>
   <meta name="description" content="{description}" />
-  <meta name="theme-color" content="#F7F2EA" />
+  <meta name="theme-color" content="#FFFFFF" />
   <meta name="robots" content="{robots}" />{base}
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_SA" />
@@ -158,16 +178,19 @@ def footer():
 
 def bg_video(t, extra=""):
     return (f'<video class="bg-video absolute inset-0 -z-10 h-full w-full object-cover {extra}" autoplay muted playsinline '
+            f'data-src="{VIDEO}" data-src-sm="{VIDEO_SM}" '
             f'preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true">'
-            f'<source src="{VIDEO}" type="video/mp4" /></video>')
+            f'</video>')
 
 
 def hero(eyebrow, title, text, t="0"):
+    media = (f'<img src="{photo(t, "1920", "1080")}" alt="" fetchpriority="high" decoding="async" '
+             f'class="bg-photo absolute inset-0 -z-10 h-full w-full object-cover" />') if t in PHOTOS else bg_video(t)
     return f"""
   <!-- Hero -->
   <section class="on-media relative isolate flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden bg-[#0B0B0C]">
-    {bg_video(t)}
-    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/20 via-black/30 to-paper" aria-hidden="true"></div>
+    {media}
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/35 via-black/35 to-black/50" aria-hidden="true"></div>
     <div class="mx-auto w-full max-w-3xl px-6 pt-16 text-center">
       <p class="fade-in-up eyebrow" style="--d: 350ms">{eyebrow}</p>
       <h1 class="fade-in-up page-title mt-4" style="--d: 450ms">{title}</h1>
@@ -200,7 +223,7 @@ def app_header(eyebrow, title, text=""):
     p = f'<p class="fade-in-up lead mt-4 max-w-xl" style="--d: 300ms">{text}</p>' if text else ""
     return f"""
   <!-- Page header (app pages: no video) -->
-  <section class="relative isolate overflow-hidden bg-gradient-to-b from-[#DCEFF2] to-paper pb-10 pt-32 md:pb-14 md:pt-40">
+  <section class="relative isolate overflow-hidden bg-gradient-to-b from-[#E8F6F8] to-paper pb-10 pt-32 md:pb-14 md:pt-40">
     <div class="container-x">
       <p class="fade-in-up eyebrow" style="--d: 100ms">{eyebrow}</p>
       <h1 class="fade-in-up mt-3 text-[32px] font-medium leading-[1.3] md:text-[44px]" style="--d: 200ms" data-page-title>{title}</h1>
@@ -289,6 +312,8 @@ def render(tpl):
             return cta(*a)
         if kind == "bgvideo":
             return bg_video(a[0] if a else "0", a[1] if len(a) > 1 else "")
+        if kind == "photo":
+            return photo(name, *a)
         if kind == "apphead":
             return app_header(*a)
         if kind == "dest_cards":
