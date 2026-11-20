@@ -35,17 +35,35 @@
   $$('img[data-fallback]').forEach((img) => { if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) dropImg(img); });
   document.addEventListener('error', (e) => { const t = e.target; if (t && t.tagName === 'IMG' && t.hasAttribute('data-fallback')) dropImg(t); }, true);
 
-  /* ---------- 2. Background videos: muted autoplay, fade in, pause off-screen ---------- */
+  /* ---------- 2. Background videos ----------
+     The clip is only ~2 seconds, so instead of looping (a jumpy restart every 2s) it plays ONCE
+     in slow motion, then holds its last frame; CSS adds a very slow zoom so the scene stays alive.
+     Reduced motion: show a still frame. */
+  const VIDEO_RATE = 0.4;
   const videos = $$('video.bg-video');
   videos.forEach((v) => {
     v.muted = true;
+    v.loop = false;
     const ready = () => v.classList.add('is-ready');
     if (v.readyState >= 2) ready(); else v.addEventListener('loadeddata', ready, { once: true });
+    if (reduceMotion) {
+      v.removeAttribute('autoplay');
+      v.pause();
+      const still = () => { try { v.currentTime = Math.max(0, (v.duration || 2) * 0.6); } catch (_) { /* not seekable yet */ } };
+      if (v.readyState >= 1) still(); else v.addEventListener('loadedmetadata', still, { once: true });
+      return;
+    }
+    // playbackRate resets when the source loads, so set it on every relevant event.
+    const slow = () => { v.defaultPlaybackRate = VIDEO_RATE; v.playbackRate = VIDEO_RATE; };
+    slow();
+    ['loadedmetadata', 'play'].forEach((ev) => v.addEventListener(ev, slow));
     safePlay(v);
   });
-  if (hasIO && videos.length) {
+  if (hasIO && videos.length && !reduceMotion) {
     const vio = new IntersectionObserver((entries) => entries.forEach((e) => {
-      if (e.isIntersecting) safePlay(e.target); else e.target.pause();
+      const v = e.target;
+      if (e.isIntersecting) { if (!v.ended) safePlay(v); } // never restart a finished clip
+      else v.pause();
     }), { threshold: 0.01 });
     videos.forEach((v) => vio.observe(v));
   }
@@ -183,7 +201,7 @@
         window.Skyin.busy(qBtn, false);
         quote.reset();
         $$('select.field', quote).forEach((s) => s.classList.add('is-placeholder'));
-        qNote.innerHTML = 'استلمنا طلبك ✓ سيتواصل معك فريقنا قريباً بالأسعار ورابط الدفع. تبي رد أسرع؟ <a target="_blank" rel="noopener" class="text-skyin-cyan underline" href="' + esc(waLink('مرحباً سكاي إن، أرسلت طلب عرض سعر من الموقع.')) + '">راسلنا على واتساب</a>.';
+        qNote.innerHTML = 'استلمنا طلبك ✓ سيتواصل معك فريقنا قريباً بالأسعار ورابط الدفع. تبي رد أسرع؟ <a target="_blank" rel="noopener" class="text-accent underline" href="' + esc(waLink('مرحباً سكاي إن، أرسلت طلب عرض سعر من الموقع.')) + '">راسلنا على واتساب</a>.';
         qNote.hidden = false;
         return;
       } catch (err) {
@@ -434,10 +452,10 @@
       m('city').textContent = d.city;
       m('summary').textContent = d.summary;
       m('highlights').innerHTML = d.highlights.map((h) =>
-        `<li class="flex items-start gap-3 text-[15px] text-white/80"><span class="check-dot">${CHECK}</span><span>${esc(h)}</span></li>`).join('');
+        `<li class="flex items-start gap-3 text-[15px] text-fg/80"><span class="check-dot">${CHECK}</span><span>${esc(h)}</span></li>`).join('');
       m('best').textContent = d.best;
       m('includes').innerHTML = d.includes.map((i) =>
-        `<span class="rounded-full border border-white/15 px-3 py-1 text-[13px] text-white/80">${esc(i)}</span>`).join('');
+        `<span class="rounded-full border border-fg/15 px-3 py-1 text-[13px] text-fg/80">${esc(i)}</span>`).join('');
       m('price').textContent = `${d.price} ريال`;
       m('nights').textContent = `· ${d.nights} ليالٍ`;
       m('ask').href = waLink(`مرحباً سكاي إن، أرغب بمعرفة تفاصيل باقة ${d.city} (${d.nights} ليالٍ، تبدأ من ${d.price} ريال).`);

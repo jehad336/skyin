@@ -16,6 +16,14 @@ module.exports = {
       colors: {
         ink: '#0B0B0C',
         skyin: { cyan: '#04B2CD', orange: '#EE790E' },
+        // Theme tokens (CSS variables in src/input.css; `.on-media` flips them to white text)
+        fg: 'rgb(var(--fg) / <alpha-value>)',
+        inv: 'rgb(var(--inv) / <alpha-value>)',
+        paper: 'rgb(var(--paper) / <alpha-value>)',
+        surface: 'rgb(var(--surface) / <alpha-value>)',
+        sand: 'rgb(var(--sand) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        warn: 'rgb(var(--warn) / <alpha-value>)',
       },
     },
   },

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>الدعم | سكاي إن للسفر والسياحة</title>
   <meta name="description" content="عندك سؤال عن رحلتك؟ تواصل مع سكاي إن عبر واتساب أو الهاتف أو البريد، أو اقرأ الأسئلة الشائعة." />
-  <meta name="theme-color" content="#0B0B0C" />
+  <meta name="theme-color" content="#F7F2EA" />
   <meta name="robots" content="index,follow" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_SA" />
@@ -19,19 +19,19 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS v3, compiled & minified with the Tailwind CLI (see README) -->
-  <link rel="stylesheet" href="assets/skyin.css" />
+  <link rel="stylesheet" href="assets/skyin.css?v=1795162776" />
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <script src="assets/config.js" defer></script>
-  <script src="assets/skyin.js" defer></script>
-  <script src="assets/app.js" defer></script>
+  <script src="assets/config.js?v=1795162776" defer></script>
+  <script src="assets/skyin.js?v=1795162776" defer></script>
+  <script src="assets/app.js?v=1795162776" defer></script>
 </head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:text-black">انتقل إلى المحتوى</a>
 
   <!-- Navigation -->
-  <header class="fade-in-up absolute inset-x-0 top-0 z-30" style="--d: 100ms">
+  <header class="site-header fade-in-up absolute inset-x-0 top-0 z-30 on-media" style="--d: 100ms">
     <nav class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 md:py-5" aria-label="القائمة الرئيسية">
-      <a href="index.html" class="block shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70" aria-label="سكاي إن للسفر والسياحة — الصفحة الرئيسية">
+      <a href="index.html" class="block shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70" aria-label="سكاي إن للسفر والسياحة — الصفحة الرئيسية">
         <img src="assets/skyin-logo.png" alt="سكاي إن للسفر والسياحة" width="245" height="160"
              class="h-12 w-auto select-none drop-shadow-[0_1px_4px_rgba(0,0,0,0.15)] md:h-16" draggable="false" />
       </a>
@@ -47,7 +47,7 @@
         <a href="support.html#contact" class="btn-secondary">ابدأ رحلتك</a>
       </div>
       <button id="menu-toggle" type="button"
-              class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:hidden"
+              class="relative -me-2 flex h-10 w-10 items-center justify-center rounded-full text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:hidden"
               aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
         <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
@@ -55,24 +55,24 @@
   </header>
 
   <!-- Mobile menu (outside the animated header so `fixed` stays viewport-relative) -->
-  <div id="mobile-menu" class="fixed inset-0 z-20 bg-black/60 backdrop-blur-2xl md:hidden" aria-hidden="true" inert>
+  <div id="mobile-menu" class="fixed inset-0 z-20 bg-paper/95 backdrop-blur-2xl md:hidden" aria-hidden="true" inert>
     <nav class="flex h-full flex-col items-center justify-center gap-7 px-6" aria-label="قائمة الجوال">
-      <a href="about.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 0">من نحن</a>
-      <a href="services.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 1">خدماتنا</a>
-      <a href="locations.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 2">فروعنا</a>
-      <a href="places.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 3">الوجهات</a>
-      <a href="support.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 4" aria-current="page">الدعم</a>
-      <a href="login.html" class="m-item text-[22px] font-normal text-white/90 hover:text-white" style="--i: 5" data-account-link hidden>تسجيل الدخول</a>
-      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-white bg-transparent px-7 py-3 text-[14px] font-normal text-white hover:bg-white hover:text-black" style="--i: 6">ابدأ رحلتك</a>
+      <a href="about.html" class="m-item text-[22px] font-normal text-fg/90 hover:text-fg" style="--i: 0">من نحن</a>
+      <a href="services.html" class="m-item text-[22px] font-normal text-fg/90 hover:text-fg" style="--i: 1">خدماتنا</a>
+      <a href="locations.html" class="m-item text-[22px] font-normal text-fg/90 hover:text-fg" style="--i: 2">فروعنا</a>
+      <a href="places.html" class="m-item text-[22px] font-normal text-fg/90 hover:text-fg" style="--i: 3">الوجهات</a>
+      <a href="support.html" class="m-item text-[22px] font-normal text-fg/90 hover:text-fg" style="--i: 4" aria-current="page">الدعم</a>
+      <a href="login.html" class="m-item text-[22px] font-normal text-fg/90 hover:text-fg" style="--i: 5" data-account-link hidden>تسجيل الدخول</a>
+      <a href="support.html#contact" class="m-item mt-4 rounded-full border border-fg bg-transparent px-7 py-3 text-[14px] font-normal text-fg hover:bg-fg hover:text-inv" style="--i: 6">ابدأ رحلتك</a>
     </nav>
   </div>
 
   <main id="main">
 
   <!-- Hero -->
-  <section class="relative isolate flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden bg-ink">
-    <video class="bg-video absolute inset-0 -z-10 h-full w-full object-cover " autoplay loop muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/01d1f8de-fec0-4bf5-8b48-9fc2dbc8c6b0.mp4#t=20" type="video/mp4" /></video>
-    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/20 via-black/30 to-ink" aria-hidden="true"></div>
+  <section class="on-media relative isolate flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden bg-[#0B0B0C]">
+    <video class="bg-video absolute inset-0 -z-10 h-full w-full object-cover " autoplay muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-hidden="true"><source src="https://cdn.sceneai.art/Hero%20Section%20Video/01d1f8de-fec0-4bf5-8b48-9fc2dbc8c6b0.mp4" type="video/mp4" /></video>
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/20 via-black/30 to-paper" aria-hidden="true"></div>
     <div class="mx-auto w-full max-w-3xl px-6 pt-16 text-center">
       <p class="fade-in-up eyebrow" style="--d: 350ms">الدعم</p>
       <h1 class="fade-in-up page-title mt-4" style="--d: 450ms">نحن هنا لمساعدتك<br>في كل خطوة</h1>
@@ -88,11 +88,11 @@
           <article class="card flex h-full flex-col">
             <div class="flex items-center justify-between">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
-              <span class="pill bg-skyin-orange/15 text-skyin-orange">الأسرع</span>
+              <span class="pill bg-skyin-orange/15 text-warn">الأسرع</span>
             </div>
             <h3 class="mt-6 text-[20px] font-medium">واتساب</h3>
-            <p class="mt-2 text-[15px] text-white"><span data-config="phone" dir="ltr">+966 50 000 0000</span></p>
-            <p class="mt-1 text-[14px] text-white/60">نرد عادةً خلال دقائق</p>
+            <p class="mt-2 text-[15px] text-fg"><span data-config="phone" dir="ltr">+966 50 000 0000</span></p>
+            <p class="mt-1 text-[14px] text-fg/60">نرد عادةً خلال دقائق</p>
             <div class="mt-auto pt-8"><a href="#" data-href="whatsapp" target="_blank" rel="noopener" class="btn-secondary">راسلنا الآن</a></div>
           </article>
         </div>
@@ -100,8 +100,8 @@
           <article class="card flex h-full flex-col">
             <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <h3 class="mt-6 text-[20px] font-medium">الهاتف</h3>
-            <p class="mt-2 text-[15px] text-white"><span data-config="phone" dir="ltr">+966 50 000 0000</span></p>
-            <p class="mt-1 text-[14px] text-white/60">السبت – الخميس، 9:00 ص – 10:00 م</p>
+            <p class="mt-2 text-[15px] text-fg"><span data-config="phone" dir="ltr">+966 50 000 0000</span></p>
+            <p class="mt-1 text-[14px] text-fg/60">السبت – الخميس، 9:00 ص – 10:00 م</p>
             <div class="mt-auto pt-8"><a href="#" data-href="phone" class="btn-secondary">اتصل بنا</a></div>
           </article>
         </div>
@@ -109,8 +109,8 @@
           <article class="card flex h-full flex-col">
             <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
             <h3 class="mt-6 text-[20px] font-medium">البريد الإلكتروني</h3>
-            <p class="mt-2 break-all text-[15px] text-white"><span data-config="email" dir="ltr">info@yourdomain.com</span></p>
-            <p class="mt-1 text-[14px] text-white/60">نرد خلال 24 ساعة</p>
+            <p class="mt-2 break-all text-[15px] text-fg"><span data-config="email" dir="ltr">info@yourdomain.com</span></p>
+            <p class="mt-1 text-[14px] text-fg/60">نرد خلال 24 ساعة</p>
             <div class="mt-auto pt-8"><a href="#" data-href="email" class="btn-secondary">أرسل بريداً</a></div>
           </article>
         </div>
@@ -124,10 +124,10 @@
           <p class="eyebrow">تواصل معنا</p>
           <h2 class="section-title mt-4">أرسل لنا رسالة</h2>
           <p class="body-copy mt-5 max-w-md">أخبرنا بما تحتاجه وسيتواصل معك فريقنا، غالباً في نفس اليوم.</p>
-          <ul class="mt-8 space-y-4 text-[15px] text-white/70">
-            <li class="flex items-start gap-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-skyin-cyan" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>السبت – الخميس · 9:00 ص – 10:00 م<br>الجمعة · 4:00 م – 10:00 م</span></li>
-            <li class="flex items-start gap-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-skyin-cyan" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>المكتب الرئيسي: حي العليا، الرياض<br><a href="locations.html" class="text-white/90 underline decoration-white/30 underline-offset-4 hover:decoration-white">كل الفروع</a></span></li>
-            <li class="flex items-start gap-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-skyin-cyan" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="#" data-href="email" class="hover:text-white" data-config="email" dir="ltr">info@yourdomain.com</a></li>
+          <ul class="mt-8 space-y-4 text-[15px] text-fg/70">
+            <li class="flex items-start gap-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>السبت – الخميس · 9:00 ص – 10:00 م<br>الجمعة · 4:00 م – 10:00 م</span></li>
+            <li class="flex items-start gap-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>المكتب الرئيسي: حي العليا، الرياض<br><a href="locations.html" class="text-fg/90 underline decoration-white/30 underline-offset-4 hover:decoration-white">كل الفروع</a></span></li>
+            <li class="flex items-start gap-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="#" data-href="email" class="hover:text-fg" data-config="email" dir="ltr">info@yourdomain.com</a></li>
           </ul>
         </div>
 
@@ -143,8 +143,8 @@
               <div data-field>
                 <label for="c-phone" class="label">رقم الجوال</label>
                 <div class="field-group" dir="ltr">
-                  <span class="flex select-none items-center border-r border-white/10 px-4 text-[15px] text-white/60">+966</span>
-                  <input id="c-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" class="w-full bg-transparent px-4 py-3 text-[15px] text-white outline-none placeholder:text-white/40" placeholder="5X XXX XXXX" data-rule="saMobile" aria-describedby="c-phone-err" />
+                  <span class="flex select-none items-center border-r border-fg/10 px-4 text-[15px] text-fg/60">+966</span>
+                  <input id="c-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" class="w-full bg-transparent px-4 py-3 text-[15px] text-fg outline-none placeholder:text-fg/40" placeholder="5X XXX XXXX" data-rule="saMobile" aria-describedby="c-phone-err" />
                 </div>
                 <p id="c-phone-err" class="err" data-error aria-live="polite"></p>
               </div>
@@ -181,10 +181,10 @@
             <div class="py-10 text-center" data-success hidden>
               <svg viewBox="0 0 52 52" class="mx-auto h-16 w-16" aria-hidden="true">
                 <circle class="check-circle" cx="26" cy="26" r="24" fill="none" stroke="#04B2CD" stroke-width="2" />
-                <path class="check-mark" d="M15 27l7 7 15-15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="check-mark" d="M15 27l7 7 15-15" fill="none" stroke="#1F1A17" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <h3 class="mt-6 text-[24px] font-medium outline-none" tabindex="-1" data-success-title>شكراً لك! سنتواصل معك قريباً.</h3>
-              <p class="mx-auto mt-3 max-w-sm text-[15px] text-white/70" data-success-text>رسالتك جاهزة في واتساب، اضغط «إرسال» لتصل إلى فريقنا.</p>
+              <p class="mx-auto mt-3 max-w-sm text-[15px] text-fg/70" data-success-text>رسالتك جاهزة في واتساب، اضغط «إرسال» لتصل إلى فريقنا.</p>
               <button type="button" class="btn-secondary mt-8" data-reset>أرسل رسالة أخرى</button>
             </div>
           </div>
@@ -198,33 +198,33 @@
         <div class="reveal md:col-span-4">
           <p class="eyebrow">الأسئلة الشائعة</p>
           <h2 class="section-title mt-4">أسئلة تتكرر علينا</h2>
-          <p class="body-copy mt-5">لم تجد إجابتك؟ <a href="#contact" class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">أرسل لنا رسالة</a>.</p>
+          <p class="body-copy mt-5">لم تجد إجابتك؟ <a href="#contact" class="text-fg underline decoration-white/30 underline-offset-4 hover:decoration-white">أرسل لنا رسالة</a>.</p>
         </div>
         <div class="reveal md:col-span-8" style="--i: 1">
-          <div class="border-t border-white/10" data-accordion>
-            <div class="acc-item border-b border-white/10" data-acc-item>
-              <h3><button type="button" id="faq-1-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-1">كيف أحجز رحلة؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
-              <div id="faq-1" class="acc-panel" role="region" aria-labelledby="faq-1-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">أرسل لنا وجهتك ومواعيدك وعدد المسافرين عبر واتساب أو من النموذج أعلاه. سنرسل لك خطة مناسبة بسعر واضح، ونؤكد كل شيء بعد موافقتك.</p></div></div>
+          <div class="border-t border-fg/10" data-accordion>
+            <div class="acc-item border-b border-fg/10" data-acc-item>
+              <h3><button type="button" id="faq-1-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-1">كيف أحجز رحلة؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-fg/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
+              <div id="faq-1" class="acc-panel" role="region" aria-labelledby="faq-1-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-fg/70">أرسل لنا وجهتك ومواعيدك وعدد المسافرين عبر واتساب أو من النموذج أعلاه. سنرسل لك خطة مناسبة بسعر واضح، ونؤكد كل شيء بعد موافقتك.</p></div></div>
             </div>
-            <div class="acc-item border-b border-white/10" data-acc-item>
-              <h3><button type="button" id="faq-2-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-2">ما طرق الدفع المتاحة؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
-              <div id="faq-2" class="acc-panel" role="region" aria-labelledby="faq-2-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">نقبل مدى وفيزا وماستركارد و<span dir="ltr">Apple Pay</span> والتحويل البنكي. اسأل فريقنا عن خيارات الدفع للحجوزات الكبيرة.</p></div></div>
+            <div class="acc-item border-b border-fg/10" data-acc-item>
+              <h3><button type="button" id="faq-2-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-2">ما طرق الدفع المتاحة؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-fg/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
+              <div id="faq-2" class="acc-panel" role="region" aria-labelledby="faq-2-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-fg/70">نقبل مدى وفيزا وماستركارد و<span dir="ltr">Apple Pay</span> والتحويل البنكي. اسأل فريقنا عن خيارات الدفع للحجوزات الكبيرة.</p></div></div>
             </div>
-            <div class="acc-item border-b border-white/10" data-acc-item>
-              <h3><button type="button" id="faq-3-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-3">هل يمكنني تعديل الحجز أو إلغاؤه؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
-              <div id="faq-3" class="acc-panel" role="region" aria-labelledby="faq-3-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">نعم. التعديل والإلغاء يخضعان لشروط شركة الطيران والفندق، وسنوضح لك أي رسوم قبل التأكيد.</p></div></div>
+            <div class="acc-item border-b border-fg/10" data-acc-item>
+              <h3><button type="button" id="faq-3-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-3">هل يمكنني تعديل الحجز أو إلغاؤه؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-fg/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
+              <div id="faq-3" class="acc-panel" role="region" aria-labelledby="faq-3-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-fg/70">نعم. التعديل والإلغاء يخضعان لشروط شركة الطيران والفندق، وسنوضح لك أي رسوم قبل التأكيد.</p></div></div>
             </div>
-            <div class="acc-item border-b border-white/10" data-acc-item>
-              <h3><button type="button" id="faq-4-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-4">هل تساعدون في التأشيرات؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
-              <div id="faq-4" class="acc-panel" role="region" aria-labelledby="faq-4-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">نعم. نشرح لك متطلبات وجهتك، ونساعدك في تجهيز الأوراق، ونتابع طلبك حتى يصدر.</p></div></div>
+            <div class="acc-item border-b border-fg/10" data-acc-item>
+              <h3><button type="button" id="faq-4-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-4">هل تساعدون في التأشيرات؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-fg/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
+              <div id="faq-4" class="acc-panel" role="region" aria-labelledby="faq-4-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-fg/70">نعم. نشرح لك متطلبات وجهتك، ونساعدك في تجهيز الأوراق، ونتابع طلبك حتى يصدر.</p></div></div>
             </div>
-            <div class="acc-item border-b border-white/10" data-acc-item>
-              <h3><button type="button" id="faq-5-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-5">هل التأمين على السفر مشمول؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
-              <div id="faq-5" class="acc-panel" role="region" aria-labelledby="faq-5-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">مشمول في كثير من باقاتنا، ويمكن إضافته لأي حجز. وسنوضح لك ما يغطيه قبل السفر.</p></div></div>
+            <div class="acc-item border-b border-fg/10" data-acc-item>
+              <h3><button type="button" id="faq-5-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-5">هل التأمين على السفر مشمول؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-fg/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
+              <div id="faq-5" class="acc-panel" role="region" aria-labelledby="faq-5-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-fg/70">مشمول في كثير من باقاتنا، ويمكن إضافته لأي حجز. وسنوضح لك ما يغطيه قبل السفر.</p></div></div>
             </div>
-            <div class="acc-item border-b border-white/10" data-acc-item>
-              <h3><button type="button" id="faq-6-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-6">هل تنظمون رحلات جماعية؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
-              <div id="faq-6" class="acc-panel" role="region" aria-labelledby="faq-6-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-white/70">بالتأكيد، للعائلات والأصدقاء والشركات. الرحلات الجماعية لها تخطيط خاص من البداية للنهاية.</p></div></div>
+            <div class="acc-item border-b border-fg/10" data-acc-item>
+              <h3><button type="button" id="faq-6-btn" class="flex w-full items-center justify-between gap-6 py-6 text-start text-[17px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:text-[18px]" data-acc-trigger aria-expanded="false" aria-controls="faq-6">هل تنظمون رحلات جماعية؟<span class="acc-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-fg/15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span></button></h3>
+              <div id="faq-6" class="acc-panel" role="region" aria-labelledby="faq-6-btn"><div><p class="pb-6 pe-12 text-[15px] leading-relaxed text-fg/70">بالتأكيد، للعائلات والأصدقاء والشركات. الرحلات الجماعية لها تخطيط خاص من البداية للنهاية.</p></div></div>
             </div>
           </div>
         </div>
@@ -235,8 +235,8 @@
     <section class="pb-20 md:pb-28">
       <div class="container-x">
         <div class="reveal">
-          <div class="flex flex-col items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-            <p class="flex items-center gap-3 text-[15px] text-white/80"><span class="pulse-dot"></span><span>مسافر الآن وتحتاج مساعدة عاجلة؟ اتصل على خط الطوارئ المتاح <span dir="ltr">24/7</span>.</span></p>
+          <div class="flex flex-col items-start gap-4 rounded-2xl border border-fg/10 bg-fg/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <p class="flex items-center gap-3 text-[15px] text-fg/80"><span class="pulse-dot"></span><span>مسافر الآن وتحتاج مساعدة عاجلة؟ اتصل على خط الطوارئ المتاح <span dir="ltr">24/7</span>.</span></p>
             <a href="#" data-href="emergency" class="btn-secondary shrink-0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span data-config="emergencyPhone" dir="ltr">+966 50 000 0000</span></a>
           </div>
         </div>
@@ -245,40 +245,40 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-white/10 bg-ink text-[14px] text-white/60">
+  <footer class="border-t border-fg/10 bg-sand text-[14px] text-fg/70">
     <div class="container-x py-16 md:py-20">
       <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-12">
         <div class="sm:col-span-2 md:col-span-4">
           <a href="index.html" class="inline-block" aria-label="سكاي إن للسفر والسياحة — الصفحة الرئيسية">
             <img src="assets/skyin-logo.png" alt="سكاي إن للسفر والسياحة" width="245" height="160" class="h-16 w-auto" loading="lazy" />
           </a>
-          <p class="mt-5 max-w-xs text-[15px] leading-relaxed text-white/70">سافر حول العالم بدون أي توتر.</p>
+          <p class="mt-5 max-w-xs text-[15px] leading-relaxed text-fg/70">سافر حول العالم بدون أي توتر.</p>
         </div>
         <div class="md:col-span-2">
-          <h2 class="text-[14px] font-medium text-white">الصفحات</h2>
+          <h2 class="text-[14px] font-medium text-fg">الصفحات</h2>
           <ul class="mt-5 space-y-3">
-            <li><a href="about.html" class="transition-colors hover:text-white">من نحن</a></li>
-            <li><a href="services.html" class="transition-colors hover:text-white">خدماتنا</a></li>
-            <li><a href="locations.html" class="transition-colors hover:text-white">فروعنا</a></li>
-            <li><a href="places.html" class="transition-colors hover:text-white">الوجهات</a></li>
-            <li><a href="support.html" class="transition-colors hover:text-white">الدعم</a></li>
+            <li><a href="about.html" class="transition-colors hover:text-fg">من نحن</a></li>
+            <li><a href="services.html" class="transition-colors hover:text-fg">خدماتنا</a></li>
+            <li><a href="locations.html" class="transition-colors hover:text-fg">فروعنا</a></li>
+            <li><a href="places.html" class="transition-colors hover:text-fg">الوجهات</a></li>
+            <li><a href="support.html" class="transition-colors hover:text-fg">الدعم</a></li>
           </ul>
         </div>
         <div class="md:col-span-3">
-          <h2 class="text-[14px] font-medium text-white">تواصل معنا</h2>
+          <h2 class="text-[14px] font-medium text-fg">تواصل معنا</h2>
           <ul class="mt-5 space-y-3">
-            <li><a data-href="phone" href="#" class="inline-flex items-center gap-3 transition-colors hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-skyin-cyan" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-config="phone" dir="ltr">+966 50 000 0000</span></a></li>
-            <li><a data-href="whatsapp" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-3 transition-colors hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-skyin-cyan" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>واتساب</span></a></li>
-            <li><a data-href="email" href="#" class="inline-flex items-center gap-3 transition-colors hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-skyin-cyan" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-config="email" dir="ltr">info@yourdomain.com</span></a></li>
+            <li><a data-href="phone" href="#" class="inline-flex items-center gap-3 transition-colors hover:text-fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-config="phone" dir="ltr">+966 50 000 0000</span></a></li>
+            <li><a data-href="whatsapp" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-3 transition-colors hover:text-fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>واتساب</span></a></li>
+            <li><a data-href="email" href="#" class="inline-flex items-center gap-3 transition-colors hover:text-fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-config="email" dir="ltr">info@yourdomain.com</span></a></li>
           </ul>
         </div>
         <div class="md:col-span-3">
-          <h2 class="text-[14px] font-medium text-white">تابعنا</h2>
-          <div class="mt-5 flex flex-wrap gap-2"><a href="#" data-social="instagram" target="_blank" rel="noopener" aria-label="إنستغرام" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a><a href="#" data-social="x" target="_blank" rel="noopener" aria-label="إكس" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="currentColor" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#" data-social="snapchat" target="_blank" rel="noopener" aria-label="سناب شات" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 2.8c-2.7 0-4.7 2-4.7 4.8v2.3l-1.8-.5c-.7-.2-1.1.7-.5 1.1l1.9 1.2c-.5 2-2 3.6-3.9 4.3-.5.2-.4.9.1 1.1l1.7.4.3 1.2c.1.3.4.5.7.4l1.4-.2c.7-.1 1.3.1 1.8.5.8.6 1.6 1.1 2.6 1.1s1.8-.5 2.6-1.1c.5-.4 1.1-.6 1.8-.5l1.4.2c.3.1.6-.1.7-.4l.3-1.2 1.7-.4c.5-.2.6-.9.1-1.1-1.9-.7-3.4-2.3-3.9-4.3l1.9-1.2c.6-.4.2-1.3-.5-1.1l-1.8.5V7.6c0-2.8-2-4.8-4.7-4.8z"/></svg></a><a href="#" data-social="tiktok" target="_blank" rel="noopener" aria-label="تيك توك" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/40 hover:text-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V2.5"/><path d="M13 2.5c.4 2.8 2.4 4.9 5.5 5.2"/></svg></a></div>
+          <h2 class="text-[14px] font-medium text-fg">تابعنا</h2>
+          <div class="mt-5 flex flex-wrap gap-2"><a href="#" data-social="instagram" target="_blank" rel="noopener" aria-label="إنستغرام" class="flex h-10 w-10 items-center justify-center rounded-full border border-fg/15 text-fg/70 transition-colors hover:border-fg/40 hover:text-fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a><a href="#" data-social="x" target="_blank" rel="noopener" aria-label="إكس" class="flex h-10 w-10 items-center justify-center rounded-full border border-fg/15 text-fg/70 transition-colors hover:border-fg/40 hover:text-fg"><svg viewBox="0 0 24 24" fill="currentColor" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#" data-social="snapchat" target="_blank" rel="noopener" aria-label="سناب شات" class="flex h-10 w-10 items-center justify-center rounded-full border border-fg/15 text-fg/70 transition-colors hover:border-fg/40 hover:text-fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 2.8c-2.7 0-4.7 2-4.7 4.8v2.3l-1.8-.5c-.7-.2-1.1.7-.5 1.1l1.9 1.2c-.5 2-2 3.6-3.9 4.3-.5.2-.4.9.1 1.1l1.7.4.3 1.2c.1.3.4.5.7.4l1.4-.2c.7-.1 1.3.1 1.8.5.8.6 1.6 1.1 2.6 1.1s1.8-.5 2.6-1.1c.5-.4 1.1-.6 1.8-.5l1.4.2c.3.1.6-.1.7-.4l.3-1.2 1.7-.4c.5-.2.6-.9.1-1.1-1.9-.7-3.4-2.3-3.9-4.3l1.9-1.2c.6-.4.2-1.3-.5-1.1l-1.8.5V7.6c0-2.8-2-4.8-4.7-4.8z"/></svg></a><a href="#" data-social="tiktok" target="_blank" rel="noopener" aria-label="تيك توك" class="flex h-10 w-10 items-center justify-center rounded-full border border-fg/15 text-fg/70 transition-colors hover:border-fg/40 hover:text-fg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V2.5"/><path d="M13 2.5c.4 2.8 2.4 4.9 5.5 5.2"/></svg></a></div>
         </div>
       </div>
-      <div class="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
-        <p>© <span data-year>2026</span> سكاي إن للسفر والسياحة<span class="hidden text-white/30 sm:inline"> · </span><br class="sm:hidden" /><span class="mt-1 inline-block whitespace-nowrap sm:mt-0" lang="en" dir="ltr">Skyin Travel &amp; Tourism</span></p>
+      <div class="mt-14 flex flex-col gap-3 border-t border-fg/10 pt-8 md:flex-row md:items-center md:justify-between">
+        <p>© <span data-year>2026</span> سكاي إن للسفر والسياحة<span class="hidden text-fg/30 sm:inline"> · </span><br class="sm:hidden" /><span class="mt-1 inline-block whitespace-nowrap sm:mt-0" lang="en" dir="ltr">Skyin Travel &amp; Tourism</span></p>
         <p>رقم الترخيص: <span data-config="licenseNo" dir="ltr">0000000</span></p>
       </div>
     </div>
@@ -287,7 +287,7 @@
   <!-- Floating WhatsApp -->
   <div class="wa-float fixed bottom-5 end-5 z-40 md:bottom-8 md:end-8">
     <a data-href="whatsapp" href="#" target="_blank" rel="noopener" aria-label="تواصل مع سكاي إن عبر واتساب"
-       class="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
+       class="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 focus-visible:ring-offset-2 focus-visible:ring-offset-paper">
       <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#25D366" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 7.9c.2-.4.5-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.9c.1.2 0 .5-.1.7l-.6.7c-.1.1-.2.3-.1.5.6 1.1 1.5 2 2.6 2.6.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.3.4.5v.6c0 .4-.2.7-.5.9-.6.4-1.4.6-2.2.4-2.6-.6-4.7-2.7-5.4-5.3-.2-.8 0-1.6.5-2.2z" fill="#25D366"/></svg>
     </a>
   </div>

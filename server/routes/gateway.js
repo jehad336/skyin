@@ -50,11 +50,11 @@ mock.get('/:id', async (req, res) => {
                            WHERE p.id = $1 AND p.provider = 'mock'`, [Number(req.params.id) || 0]);
   if (!p) return res.status(404).send(page('غير موجود', '<p>عملية الدفع غير موجودة.</p>'));
   res.send(page('بوابة دفع تجريبية', `
-    <p class="pill bg-skyin-orange/15 text-skyin-orange">وضع الاختبار — لا تُخصم أي مبالغ</p>
+    <p class="pill bg-skyin-orange/15 text-warn">وضع الاختبار — لا تُخصم أي مبالغ</p>
     <h1 class="mt-4 text-[24px] font-medium">بوابة دفع تجريبية</h1>
-    <p class="mt-2 text-white/70">${esc(p.title)} · <span dir="ltr">${esc(p.ref)}</span></p>
+    <p class="mt-2 text-fg/70">${esc(p.title)} · <span dir="ltr">${esc(p.ref)}</span></p>
     <p class="mt-6 text-[32px] font-medium" dir="ltr">${(p.amount_halalas / 100).toLocaleString('en-US')} SAR</p>
-    ${p.status !== 'initiated' ? `<p class="mt-6 text-white/70">حالة العملية: ${esc(p.status)}</p>` : `
+    ${p.status !== 'initiated' ? `<p class="mt-6 text-fg/70">حالة العملية: ${esc(p.status)}</p>` : `
     <form method="post" class="mt-8 flex flex-col gap-3">
       <button name="result" value="paid" class="btn-primary">محاكاة دفع ناجح</button>
       <button name="result" value="failed" class="btn-secondary">محاكاة دفع مرفوض</button>

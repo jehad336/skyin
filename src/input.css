@@ -3,13 +3,37 @@
 @tailwind utilities;
 
 /* =========================================================
-   Skyin Travel & Tourism — design system
-   Brand: cyan #04B2CD · orange #EE790E · ink #0B0B0C
+   Skyin Travel & Tourism — design system (light theme)
+   Brand: cyan #04B2CD · orange #EE790E
+   Page: warm beige paper #F7F2EA · white surfaces · warm ink text #1F1A17
+
+   Colours are CSS variables (RGB channels) so Tailwind opacity modifiers work:
+     text-fg / text-fg/70 · bg-paper · bg-surface · bg-sand · text-accent · text-warn · bg-fg text-inv
+   Anything sitting on a video or photo gets `.on-media`, which flips the tokens to white text.
    ========================================================= */
 
+:root {
+  --fg: 31 26 23;          /* text */
+  --inv: 255 255 255;      /* text on a solid fg background (primary button) */
+  --paper: 247 242 234;    /* page background (beige) */
+  --surface: 255 255 255;  /* cards, panels, fields */
+  --sand: 239 230 216;     /* footer, subtle bands */
+  --accent: 7 122 140;     /* cyan, darkened for readable text on light backgrounds */
+  --warn: 180 83 10;       /* orange, darkened for readable text */
+}
+.on-media {
+  --fg: 255 255 255;
+  --inv: 11 11 12;
+  --accent: 4 178 205;
+  --warn: 238 121 14;
+  color: rgb(var(--fg));
+}
+/* Open mobile menu is a light overlay: the header (burger, logo) switches back to dark text. */
+body.menu-open .site-header { --fg: 31 26 23; --inv: 255 255 255; --accent: 7 122 140; color: rgb(var(--fg)); }
+
 @layer base {
-  html { background-color: #0B0B0C; -webkit-text-size-adjust: 100%; }
-  body { @apply bg-ink font-sans text-white antialiased; }
+  html { background-color: rgb(var(--paper)); -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper font-sans text-fg antialiased; }
   [hidden] { display: none !important; }
   [id] { scroll-margin-top: 24px; }
   ::selection { background: #EE790E; color: #fff; }
@@ -20,49 +44,49 @@
   .section { @apply py-20 md:py-28; }
 
   /* Arabic: no letter-spacing / uppercase (it breaks joined letters), taller line-heights */
-  .eyebrow { @apply text-[14px] font-medium text-skyin-cyan; }
-  .page-title { @apply text-[38px] font-medium leading-[1.3] text-white md:text-[56px]; }
-  .section-title { @apply text-[28px] font-medium leading-[1.35] text-white md:text-[40px]; }
-  .lead { @apply text-[15px] leading-[1.8] text-white/80 md:text-[18px]; }
-  .body-copy { @apply text-[15px] leading-[1.9] text-white/70 md:text-[17px]; }
+  .eyebrow { @apply text-[14px] font-medium text-accent; }
+  .page-title { @apply text-[38px] font-medium leading-[1.3] text-fg md:text-[56px]; }
+  .section-title { @apply text-[28px] font-medium leading-[1.35] text-fg md:text-[40px]; }
+  .lead { @apply text-[15px] leading-[1.8] text-fg/80 md:text-[18px]; }
+  .body-copy { @apply text-[15px] leading-[1.9] text-fg/70 md:text-[17px]; }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-[26px] py-[12px] text-[15px] font-medium text-black
-           shadow-[0_6px_20px_rgba(0,0,0,0.18)] transition-all duration-300 ease-out
-           hover:scale-105 hover:shadow-[0_14px_40px_rgba(0,0,0,0.32)] active:scale-100
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-fg px-[26px] py-[12px] text-[15px] font-medium text-inv
+           shadow-[0_6px_20px_rgba(31,26,23,0.14)] transition-all duration-300 ease-out
+           hover:scale-105 hover:shadow-[0_14px_40px_rgba(31,26,23,0.22)] active:scale-100
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper
            disabled:cursor-wait disabled:opacity-80 disabled:hover:scale-100;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white bg-transparent px-5 py-2 text-[14px] font-normal text-white
-           transition-colors duration-300 hover:bg-white hover:text-black
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-fg bg-transparent px-5 py-2 text-[14px] font-normal text-fg
+           transition-colors duration-300 hover:bg-fg hover:text-inv
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/60;
   }
 
   .card {
-    @apply rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 ease-out
-           hover:-translate-y-1 hover:border-white/20 md:p-8;
+    @apply rounded-2xl border border-fg/10 bg-surface p-6 shadow-[0_1px_2px_rgba(31,26,23,0.04)] transition-all duration-300 ease-out
+           hover:-translate-y-1 hover:border-fg/20 hover:shadow-[0_12px_32px_rgba(31,26,23,0.08)] md:p-8;
   }
-  .panel { @apply rounded-3xl border border-white/10 bg-white/[0.04]; }
-  .icon-tile { @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/5 text-skyin-cyan; }
-  .check-dot { @apply mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-skyin-orange/15 text-skyin-orange; }
+  .panel { @apply rounded-3xl border border-fg/10 bg-surface shadow-[0_1px_2px_rgba(31,26,23,0.04)]; }
+  .icon-tile { @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-skyin-cyan/10 text-accent; }
+  .check-dot { @apply mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-skyin-orange/15 text-warn; }
   .pill { @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[12px] font-medium; }
 
-  .nav-link { @apply relative text-[14px] font-normal text-white/90 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:underline focus-visible:underline-offset-4; }
+  .nav-link { @apply relative text-[14px] font-normal text-fg/90 transition-colors duration-200 hover:text-fg focus-visible:outline-none focus-visible:underline focus-visible:underline-offset-4; }
 
-  .label { @apply mb-2 block text-[14px] font-medium text-white/70; }
+  .label { @apply mb-2 block text-[14px] font-medium text-fg/70; }
   .field {
-    @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[15px] text-white outline-none
-           transition-colors duration-200 placeholder:text-white/40 focus:border-skyin-cyan;
+    @apply w-full rounded-xl border border-fg/15 bg-surface px-4 py-3 text-[15px] text-fg outline-none
+           transition-colors duration-200 placeholder:text-fg/40 focus:border-skyin-cyan;
   }
-  .field-group { @apply flex w-full overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-colors duration-200 focus-within:border-skyin-cyan; }
-  .err { @apply mt-2 text-[13px] text-skyin-orange; }
+  .field-group { @apply flex w-full overflow-hidden rounded-xl border border-fg/15 bg-surface transition-colors duration-200 focus-within:border-skyin-cyan; }
+  .err { @apply mt-2 text-[13px] text-warn; }
 
   .pill-filter {
-    @apply shrink-0 rounded-full border border-white/15 px-5 py-2 text-[14px] text-white/80 transition-colors duration-300
-           hover:border-white/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70;
+    @apply shrink-0 rounded-full border border-fg/15 bg-surface px-5 py-2 text-[14px] text-fg/80 transition-colors duration-300
+           hover:border-fg/40 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/60;
   }
-  .pill-filter.is-active { @apply border-white bg-white text-black hover:text-black; }
+  .pill-filter.is-active { @apply border-fg bg-fg text-inv hover:text-inv; }
 }
 
 /* ---------- Hide scrollbars globally (cinematic look) — scrolling still works ---------- */
@@ -75,9 +99,12 @@ html, body, * { scrollbar-width: none; -ms-overflow-style: none; }
 .hero { height: 100vh; }
 @supports (height: 100dvh) { .hero { height: 100dvh; } }
 
-/* ---------- Background videos fade in once frames are ready ---------- */
-.bg-video { opacity: 0; transition: opacity 1.4s ease-out; }
-.bg-video.is-ready { opacity: 1; }
+/* ---------- Background videos ----------
+   The clip is ~2s, so it plays once in slow motion (skyin.js) and holds its last frame,
+   while a very slow zoom keeps the scene alive — no visible restart. */
+.bg-video { opacity: 0; transition: opacity 1.4s ease-out; transform-origin: 50% 40%; }
+.bg-video.is-ready { opacity: 1; animation: slowZoom 24s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
 
 /* ---------- Photo placeholders: brand-toned gradient until a real photo is added ---------- */
 .ph {
@@ -106,7 +133,7 @@ html, body, * { scrollbar-width: none; -ms-overflow-style: none; }
 .js .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Navigation: current page ---------- */
-.nav-link[aria-current="page"] { color: #fff; }
+.nav-link[aria-current="page"] { color: rgb(var(--fg)); }
 .nav-link[aria-current="page"]::after,
 .m-item[aria-current="page"]::after {
   content: ""; position: absolute; left: 50%; top: calc(100% + 6px);
@@ -133,7 +160,7 @@ body.menu-open #mobile-menu { opacity: 1; visibility: visible; }
   position: relative; opacity: 0; transform: translate3d(0, 14px, 0);
   transition: opacity .45s ease, transform .6s cubic-bezier(0.22, 1, 0.36, 1), background-color .3s ease, color .3s ease;
 }
-#mobile-menu .m-item[aria-current="page"] { color: #fff; }
+#mobile-menu .m-item[aria-current="page"] { color: rgb(var(--fg)); }
 body.menu-open #mobile-menu .m-item {
   opacity: 1; transform: none;
   transition-delay: calc(var(--i, 0) * 55ms + 90ms), calc(var(--i, 0) * 55ms + 90ms), 0ms, 0ms;
@@ -146,13 +173,13 @@ body.menu-open .wa-float, body.modal-open .wa-float { visibility: hidden; }
 
 /* ---------- Locations ---------- */
 .office.is-selected { border-color: #04B2CD; background: rgba(4, 178, 205, 0.06); }
-.map-frame { filter: invert(0.9) hue-rotate(180deg) grayscale(0.3); transition: opacity .25s ease; }
+.map-frame { transition: opacity .25s ease; }
 .map-frame.is-swapping { opacity: 0; }
-.hours-row.is-today { background: rgba(255, 255, 255, 0.06); color: #fff; }
-.open-badge { color: rgba(255, 255, 255, .55); border: 1px solid rgba(255, 255, 255, .15); }
-.open-badge .pulse-dot { background: rgba(255, 255, 255, .45); }
+.hours-row.is-today { background: rgb(var(--fg) / 0.05); color: rgb(var(--fg)); }
+.open-badge { color: rgb(var(--fg) / .6); border: 1px solid rgb(var(--fg) / .15); }
+.open-badge .pulse-dot { background: rgb(var(--fg) / .4); }
 .open-badge .pulse-dot::after { display: none; }
-.open-badge.is-open { color: #04B2CD; border-color: rgba(4, 178, 205, .35); background: rgba(4, 178, 205, .08); }
+.open-badge.is-open { color: rgb(var(--accent)); border-color: rgba(4, 178, 205, .35); background: rgba(4, 178, 205, .08); }
 .open-badge.is-open .pulse-dot { background: #04B2CD; }
 .open-badge.is-open .pulse-dot::after { display: block; }
 
@@ -180,19 +207,20 @@ body.menu-open .wa-float, body.modal-open .wa-float { visibility: hidden; }
 .acc-item.is-open .acc-icon { transform: rotate(45deg); }
 
 /* ---------- Forms ---------- */
-.field, .field-group input { color-scheme: dark; }
+.field, .field-group input { color-scheme: light; }
 .err:empty { display: none; }
 .has-error .field, .has-error .field-group { border-color: #EE790E !important; }
 select.field {
   appearance: none; -webkit-appearance: none; padding-right: 2.75rem; cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-opacity='.6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F1A17' stroke-opacity='.6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 1rem center; background-size: 16px;
 }
 [dir="rtl"] select.field { background-position: left 1rem center; padding-right: 1rem; padding-left: 2.75rem; }
-select.field.is-placeholder { color: rgba(255, 255, 255, .4); }
-select.field option { background: #141416; color: #fff; }
+select.field.is-placeholder { color: rgb(var(--fg) / .4); }
+select.field option { background: #fff; color: #1F1A17; }
 
-.spinner { width: 16px; height: 16px; border-radius: 9999px; border: 2px solid rgba(0, 0, 0, .2); border-top-color: #000; animation: spin .7s linear infinite; }
+/* Spinner follows the button's text colour (light on the dark primary button, dark on outline buttons). */
+.spinner { width: 16px; height: 16px; border-radius: 9999px; border: 2px solid currentColor; border-top-color: transparent; opacity: .8; animation: spin .7s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .check-circle { stroke-dasharray: 151; stroke-dashoffset: 151; animation: draw .6s ease-out forwards; }

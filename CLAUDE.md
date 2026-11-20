@@ -54,7 +54,15 @@ npm run build        # = python _build/build.py  +  Tailwind compile/minify
 Always run `npm run build` after changing templates, build.py, input.css or class names in JS.
 
 ## Design rules
-- Brand: cyan `#04B2CD`, orange `#EE790E`, background ink `#0B0B0C`. Dark, cinematic, white text.
+- **Light theme** (owner asked: no black backgrounds). Beige page `paper` #F7F2EA, white `surface` cards, warm dark text `fg` #1F1A17,
+  `sand` footer. Brand cyan `#04B2CD` / orange `#EE790E` for fills; text uses `text-accent` / `text-warn` (darker, readable).
+- Use the theme tokens, never `text-white`/`bg-ink` for page content: `text-fg`, `text-fg/70`, `border-fg/10`, `bg-surface`,
+  `bg-paper`, `btn-primary` = `bg-fg text-inv`. They are CSS variables in `src/input.css`.
+- Anything on a video or photo (heroes, CTA band, destination cards, nav over a video hero) gets **`.on-media`**,
+  which flips the tokens to white text. `nav(page, on_media=…)` in build.py: marketing pages yes, app pages no.
+- Hero video is a ~2s clip: it plays **once** at 0.4x and holds the last frame with a slow CSS zoom (no `loop` —
+  the owner found the fast repeat annoying). See section 2 of skyin.js.
+- CSS/JS links carry `?v=<build time>` (build.py `V`) so browsers pick up changes after each build.
 - Fonts: IBM Plex Sans Arabic (Arabic) + Inter (Latin letters & numbers), from Google Fonts.
 - Arabic typography: **no letter-spacing or uppercase on Arabic text** (breaks joined letters);
   headings line-height ≥ 1.3.
@@ -64,7 +72,7 @@ Always run `npm run build` after changing templates, build.py, input.css or clas
   element that has a hover transform (the animation would cancel `hover:scale`/`hover:-translate-y`).
 - Buttons: `.btn-primary` (white pill, 15px medium, `px-[26px] py-[12px]`, hover scale-105),
   `.btn-secondary` (outline pill, 14px). Cards: `.card`. Section titles: `.section-title`.
-- Homepage hero is a fixed spec: 100vh muted looping video, overlay black/10 → black/40,
+- Homepage hero is a fixed spec: 100vh muted video (plays once, slow), overlay black/10 → black/40,
   headline 38px mobile / 56px desktop, subtext 15/18px white/80, nav links 14px white/90,
   scrollbars hidden globally.
 - Respect `prefers-reduced-motion` (already handled in `src/input.css`).
@@ -81,8 +89,10 @@ Always run `npm run build` after changing templates, build.py, input.css or clas
   - destination prices / nights → admin dashboard (or `data/destinations.json` before first run)
   - offices (Riyadh / Jeddah / Makkah), addresses, `data-map` queries, opening hours → `_build/tpl/locations.html`
   - FAQ answers (esp. payment methods) → `_build/tpl/support.html`
-- **Photos**: none yet; gradient placeholders show until files exist in `public/assets/images/`
-  (names listed in `assets/images/README.txt`).
+- **Photos**: destinations use free Unsplash photos (Unsplash License — commercial use, no attribution required),
+  hot-linked from images.unsplash.com; URLs + credit links in `data/destinations.json` (`image`, `image_credit`),
+  copied into `destinations.image_url` on seed (only where empty). Replace from the dashboard (image URL field).
+  Still missing: about.jpg, holiday/honeymoon/family.jpg (gradient placeholders; names in `public/assets/images/README.txt`).
 
 ## Checking work
 `npm test` must pass. Render every page at 1440px and 390px wide: no console errors (missing photos 404 is expected),

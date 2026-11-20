@@ -53,21 +53,21 @@
   };
   const todayISO = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Riyadh' }).format(new Date());
   const STATUS = {
-    pending_payment: ['بانتظار الدفع', 'bg-skyin-orange/15 text-skyin-orange'],
-    paid: ['مدفوع', 'bg-skyin-cyan/15 text-skyin-cyan'],
-    confirmed: ['مؤكد', 'bg-emerald-500/15 text-emerald-400'],
-    cancelled: ['ملغي', 'bg-white/10 text-white/60'],
-    refunded: ['مسترد', 'bg-white/10 text-white/60'],
-    initiated: ['قيد الدفع', 'bg-skyin-orange/15 text-skyin-orange'],
-    failed: ['فشل', 'bg-red-500/15 text-red-400'],
-    new: ['جديد', 'bg-skyin-orange/15 text-skyin-orange'],
-    contacted: ['تم التواصل', 'bg-skyin-cyan/15 text-skyin-cyan'],
-    quoted: ['أُرسل العرض', 'bg-skyin-cyan/15 text-skyin-cyan'],
-    closed: ['مغلق', 'bg-white/10 text-white/60'],
-    read: ['مقروءة', 'bg-white/10 text-white/60'],
-    archived: ['مؤرشفة', 'bg-white/10 text-white/60'],
+    pending_payment: ['بانتظار الدفع', 'bg-skyin-orange/15 text-warn'],
+    paid: ['مدفوع', 'bg-skyin-cyan/15 text-accent'],
+    confirmed: ['مؤكد', 'bg-emerald-500/15 text-emerald-700'],
+    cancelled: ['ملغي', 'bg-fg/10 text-fg/60'],
+    refunded: ['مسترد', 'bg-fg/10 text-fg/60'],
+    initiated: ['قيد الدفع', 'bg-skyin-orange/15 text-warn'],
+    failed: ['فشل', 'bg-red-500/15 text-red-700'],
+    new: ['جديد', 'bg-skyin-orange/15 text-warn'],
+    contacted: ['تم التواصل', 'bg-skyin-cyan/15 text-accent'],
+    quoted: ['أُرسل العرض', 'bg-skyin-cyan/15 text-accent'],
+    closed: ['مغلق', 'bg-fg/10 text-fg/60'],
+    read: ['مقروءة', 'bg-fg/10 text-fg/60'],
+    archived: ['مؤرشفة', 'bg-fg/10 text-fg/60'],
   };
-  const pill = (s) => { const [t, c] = STATUS[s] || [s, 'bg-white/10 text-white/70']; return `<span class="pill ${c}">${esc(t)}</span>`; };
+  const pill = (s) => { const [t, c] = STATUS[s] || [s, 'bg-fg/10 text-fg/70']; return `<span class="pill ${c}">${esc(t)}</span>`; };
 
   /* ---------- Forms ---------- */
   const formData = (form) => {
@@ -157,16 +157,16 @@
         box.innerHTML = bookings.length ? bookings.map((b) => `
           <article class="panel flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div class="flex flex-wrap items-center gap-2">${pill(b.status)}<span class="text-[13px] text-white/50" dir="ltr">${esc(b.ref)}</span></div>
+              <div class="flex flex-wrap items-center gap-2">${pill(b.status)}<span class="text-[13px] text-fg/50" dir="ltr">${esc(b.ref)}</span></div>
               <h3 class="mt-2 text-[17px] font-medium">${esc(b.title)}</h3>
-              <p class="mt-1 text-[14px] text-white/60">${date(b.travel_date)} · ${b.travelers} مسافر · <span dir="ltr">${money(b.total)}</span></p>
+              <p class="mt-1 text-[14px] text-fg/60">${date(b.travel_date)} · ${b.travelers} مسافر · <span dir="ltr">${money(b.total)}</span></p>
             </div>
             <div class="flex shrink-0 gap-2">
               ${b.status === 'pending_payment' ? `<a class="btn-primary" href="pay.html?t=${encodeURIComponent(b.pay_token)}">ادفع الآن</a>
-                <button type="button" class="btn-secondary border-white/30" data-cancel="${esc(b.ref)}">إلغاء</button>` : ''}
+                <button type="button" class="btn-secondary border-fg/30" data-cancel="${esc(b.ref)}">إلغاء</button>` : ''}
             </div>
           </article>`).join('')
-          : `<div class="panel p-8 text-center text-white/70">ما عندك حجوزات بعد. <a href="places.html" class="text-skyin-cyan hover:underline">تصفح الوجهات</a></div>`;
+          : `<div class="panel p-8 text-center text-fg/70">ما عندك حجوزات بعد. <a href="places.html" class="text-accent hover:underline">تصفح الوجهات</a></div>`;
       } catch (e) { box.innerHTML = `<p class="err">${esc(e.message)}</p>`; }
 
       box.addEventListener('click', async (e) => {
@@ -180,10 +180,10 @@
       try {
         const { quotes } = await api('GET', '/me/quotes');
         $('[data-quotes]').innerHTML = quotes.length ? quotes.map((q) => `
-          <div class="flex items-center justify-between gap-4 rounded-2xl border border-white/10 px-5 py-4">
-            <div><p class="text-[15px]">${esc(q.service)}</p><p class="mt-1 text-[13px] text-white/50">${date(q.travel_date)} · ${q.travelers || '—'} مسافر</p></div>
+          <div class="flex items-center justify-between gap-4 rounded-2xl border border-fg/10 px-5 py-4">
+            <div><p class="text-[15px]">${esc(q.service)}</p><p class="mt-1 text-[13px] text-fg/50">${date(q.travel_date)} · ${q.travelers || '—'} مسافر</p></div>
             ${pill(q.status)}
-          </div>`).join('') : `<p class="text-[14px] text-white/60">لا توجد طلبات. <a href="services.html#quote" class="text-skyin-cyan hover:underline">اطلب عرض سعر</a></p>`;
+          </div>`).join('') : `<p class="text-[14px] text-fg/60">لا توجد طلبات. <a href="services.html#quote" class="text-accent hover:underline">اطلب عرض سعر</a></p>`;
       } catch (_) { /* optional section */ }
     });
 
@@ -244,7 +244,7 @@
     const alertBox = $('[data-pay-alert]');
     const say = (msg, kind) => {
       alertBox.className = 'rounded-2xl border px-4 py-3 text-[14px] ' + (kind === 'ok'
-        ? 'border-skyin-cyan/30 bg-skyin-cyan/10 text-skyin-cyan' : 'border-skyin-orange/30 bg-skyin-orange/10 text-skyin-orange');
+        ? 'border-skyin-cyan/30 bg-skyin-cyan/10 text-accent' : 'border-skyin-orange/30 bg-skyin-orange/10 text-warn');
       alertBox.textContent = msg; alertBox.hidden = false;
     };
     const render = (b, lastPayment) => {
