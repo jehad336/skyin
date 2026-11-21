@@ -66,7 +66,7 @@ Always run `npm run build` after changing templates, build.py, input.css or clas
 - Sub-page heroes use their own photo (`{{hero|…|hero-<page>}}`); all page photos are in `PHOTOS` in build.py
   (Unsplash IDs, used as `{{photo:key|w|h}}`).
 - CSS/JS links carry `?v=<build time>` (build.py `V`) so browsers pick up changes after each build.
-- Fonts: IBM Plex Sans Arabic (Arabic) + Inter (Latin letters & numbers), from Google Fonts.
+- Fonts: Zain (Arabic; owner wanted Thmanyah but its licence forbids web embedding) + Inter (Latin letters & numbers), from Google Fonts. Zain has weights 300/400/700/800 only (500→400, 600→700) and runs ~24% wider than Plex.
 - Arabic typography: **no letter-spacing or uppercase on Arabic text** (breaks joined letters);
   headings line-height ≥ 1.3.
 - RTL: use logical utilities (`ms/me`, `ps/pe`, `start/end`, `border-s`, `text-start`);

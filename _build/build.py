@@ -61,10 +61,10 @@ def head(title, description, robots="index,follow", base="", extra_js=""):
   <meta property="og:description" content="{description}" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-  <!-- Fonts: IBM Plex Sans Arabic for Arabic text, Inter for Latin letters & numbers -->
+  <!-- Fonts: Zain for Arabic text, Inter for Latin letters & numbers -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Zain:wght@300;400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS v3, compiled & minified with the Tailwind CLI (see README) -->
   <link rel="stylesheet" href="assets/skyin.css?v={V}" />

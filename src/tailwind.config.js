@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Inter for Latin letters & numbers, IBM Plex Sans Arabic for Arabic text
-        sans: ['Inter', 'IBM Plex Sans Arabic', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Tahoma', 'sans-serif'],
+        // Inter for Latin letters & numbers, Zain for Arabic text
+        sans: ['Inter', 'Zain', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Tahoma', 'sans-serif'],
       },
       colors: {
         ink: '#0B0B0C',
